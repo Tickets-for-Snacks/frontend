@@ -1,1 +1,64 @@
-<p>register works!</p>
+<div class="container-fluid">
+
+  <div class="row d-flex align-items-center pt-5">
+    <div class="col-md-12">
+
+      <h1 class="text-center mb-3">Cadastro</h1>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-3">
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input class="form-control" type="text" name="email" id="email" placeholder="Seu e-mail">
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha">
+          </div>
+
+          <div class="form-group">
+            <label for="foto">Link da Foto</label>
+            <input class="form-control" type="text" name="foto" id="foto" placeholder="Link da Foto">
+          </div>
+
+
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input class="form-control" type="text" name="nome" id="nome" placeholder="Seu nome">
+          </div>
+
+          <div class="form-group">
+            <label for="confirmSenha">Confirmar senha:</label>
+            <input class="form-control" type="password" name="confirmSenha" id="confirmSenha"
+              placeholder="Confirme sua senha">
+          </div>
+
+          <div class="form-group">
+            <label for="tipo">Tipo de Usuário</label>
+            <select class="form-control" name="tipo" id="tipo">
+              <option>Selecione um tipo de usuário:</option>
+              <option value="normal">Cliente</option>
+              <option value="empresa">Empresa</option>
+              <option value="pmcomunidade">Pequena/Média comunidade de fazenda</option>
+              <option value="ong">ONG</option>
+            </select>
+          </div>
+
+        </div>
+          <div class="col-md-12 pt-3">
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-success mr-5 pr-3 pl-3">Cancelar</button>
+              <button type="submit" class="btn btn-success ml-5 pr-3 pl-3">Login</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

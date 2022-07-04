@@ -1,0 +1,17 @@
+#imgbg{
+  background-color:#f4e4b4 !important;
+}
+
+#fontLetra{
+  font-family: monospace;
+  color: rgb(221, 10, 10);
+}
+
+#navbarSupportedContent{
+  font-size: 18px;
+  font-family: monospace;
+}
+
+#hoverzinho:hover{
+  color: purple;
+}

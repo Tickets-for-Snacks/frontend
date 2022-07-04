@@ -1,3 +1,17 @@
-.linhaPadding{
-  padding-bottom: 150px;
+input{
+  border-radius: 500px;
+}
+select{
+  border-radius: 500px;
+}
+
+#imgbg{
+  background-image: url('https://cdn.discordapp.com/attachments/976239165073141780/993573786140016760/unknown.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+}
+
+#bgRegister{
+  background-color:#f4e4b4 !important;
 }

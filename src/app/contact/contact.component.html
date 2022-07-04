@@ -1,40 +1,31 @@
-<p>contact works!</p>
-<footer class="page-footer font-small bg-secondary pt-4">
-
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col-md-12 d-flex justify-content-center">
-        <h4 class="text-white">Siga-nos nas redes sociais!</h4>
-      </div>
+        <div class="col-md-12">
+            <h1 class="text-center mt-4 mb-4">Contato</h1>
+        </div>
+        <div class="col-md-12">
+            <h3 class="text-center mt-4 mb-4">Entre em contato conosco!</h3>
+        </div>
     </div>
 
     <div class="row">
-      <div class="col-md-12 d-flex justify-content-center">
-        <ul class="social-network">
-          <li>
-            <a href="https://github.com/AugustoCesarAC" target="_blank" class="icoGithub"><i class="fa fa-github"
-                aria-hidden="true"></i></a>
-          </li>
-
-          <li>
-            <a href="https://www.instagram.com/augusto.crazy/" target="_blank" class="icoInsta"><i
-                class="fa fa-instagram" aria-hidden="true"></i></a>
-          </li>
-
-          <li>
-            <a href="https://www.linkedin.com/in/augustocesarsl/" target="_blank" class="icoLinkedin"><i
-                class="fa fa-linkedin" aria-hidden="true"></i></a>
-          </li>
-
-        </ul>
-      </div>
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email</label>
+                    <input type="email" class="form-control" id="email" onkeyup="validarEmail()"
+                        placeholder="name@example.com">
+                        <div id = "TxtEmail"></div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Sobre</label>
+                    <textarea class="form-control" id="assunto" onkeyup="validarAssunto()" rows="3"></textarea>
+                    <div id = "TxtAssunto"></div>
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <button class="btn btn-outline-dark" onclick = "Enviar()">Enviar</button>
+                </div>
+            </form>
+        </div>
     </div>
-
-  </div>
-
-  <div class="footer-copyright bg-dark text-center py-3">
-    <span class="text-light"> © 2022 Copyright: <a class="text-light" href="https://www.linkedin.com/in/augustocesarsl/">Augusto Cesar</a> </span>
-
-  </div>
-
-</footer>
+</div>

@@ -1,0 +1,9 @@
+#bgColorComplete{
+  height: 100vh !important;
+  background-color: rgba(255, 252, 101, 0.459) !important;
+}
+
+.paddingZero{
+  padding: 0;
+  margin: 0;
+}

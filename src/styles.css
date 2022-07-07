@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+#paddingCenterTop{
+  padding-top: 100px;
+}
+
+#imgbackground{
+  background-color: #c4bc9c;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+}

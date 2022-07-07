@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.authService.register(this.user).subscribe((resp: Usuario) => {
         this.user = resp;
-        this.router.navigate(['/home']);
+        this.router.navigate(['/login']);
         alert('Usuário cadastrado com sucesso!');
       });
     }

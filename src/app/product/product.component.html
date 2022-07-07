@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="row">
+      <div id="bgColorComplete" class="pos-f-t">
+        <nav class="navbar navbar-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+
+        <div class="collapse" id="navbarToggleExternalContent">
+
+          <div class="pr-5">
+            <div class="row pt-5 pl-5">
+              <h3>CATEGORIAS:</h3>
+            </div>
+
+            <div *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" class="row pb-3 pt-3 pl-5">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id={{number}}>
+                <label class="form-check-label" for={{number}}>
+                  <h6>Tipo(Var)</h6>
+                </label>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="paddingCenterTop" class="col pl-5">
+
+      <div class="row d-flex pr-2 pb-5">
+
+        <div class="col-4">
+          <h3>Pesquise por nome: </h3>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+
+        <div class="col-6"></div>
+
+        <div class="col-2">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Pesquise por:</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Menor preço</option>
+              <option>Maior preço</option>
+              <option>Relevância</option>
+              <option>Bem avaliado</option>
+              <option>Adicionado recentemente</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div *ngFor="let number of [0,1]" class="row d-flex justify-content-center">
+        <div *ngFor="let number of [0,1,2,3]" class="col-3 mb-3 d-flex justify-content-center align-content-center">
+          <div class="card">
+            <img class="img-fluid" alt="100%x280"
+              src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+            <div class="card-body">
+              <h4 class="card-title">Variavel Titulo Ticket.</h4>
+              <p class="card-text">Variavel Descrição Ticket.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center pt-4 pb-4">
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+
+</div>

@@ -1,3 +1,22 @@
-.tamanho{
+.tamanho {
   font-size: 150pt;
+}
+
+#carouselArrow {
+  border: 5px solid white;
+  border-radius: 50%;
+  background-color: white;
+  color: #fc4444;
+  font-size: 25px;
+}
+
+
+.carousel-indicators li {
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+}
+
+.carousel-indicators .active {
+  background-color: #fc4444;
 }

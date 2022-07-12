@@ -1,5 +1,6 @@
 input{
   border-radius: 500px;
+  padding-right: auto;
 }
 select{
   border-radius: 500px;
@@ -13,5 +14,10 @@ select{
 }
 
 #bgRegister{
-  background-color:#f4e4b4 !important;
+  background-color:#f4e4b494 !important;
+}
+
+label{
+  font-style: oblique;
+  font-weight: 700;
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Produto } from 'src/app/model/Produto';
+import { ProdutoService } from 'src/app/service/produto.service';
 
 @Component({
   selector: 'app-user-product',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProductComponent implements OnInit {
 
-  constructor() { }
+  produto: Produto = new Produto()
+  listaProdutos: Produto[] 
 
-  ngOnInit(): void {
+  constructor(
+    private produtoService: ProdutoService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
   }
-
+  cadastrar(){
+    this.produtoService.postProduto(this.produto).subscribe((resp: Produto) =>{
+      this.produto = resp
+      alert('Produto cadastrado com sucesso!')
+      //this.findAllProduto()
+      this.produto = new Produto()
+    }
+    )
+  }
 }

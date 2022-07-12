@@ -3,7 +3,7 @@ input{
 }
 
 #imgbg{
-  background-image: url('../../assets/img/login.png');
+  background-image: url('../../../assets/img/login.png');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 90vh;

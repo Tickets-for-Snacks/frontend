@@ -10,11 +10,11 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
-
+import { UserProductComponent } from './user-product/user-product.component';
 
 const routes: Routes = [
-
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path: 'register', component: RegisterComponent },
@@ -30,10 +30,12 @@ const routes: Routes = [
   { path: 'categoria-delete', component: CategoriaDeleteComponent },
   { path: 'produto-delete', component: ProdutoDeleteComponent },
 
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user-product', component: UserProductComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -16,7 +16,8 @@ import { environment } from 'src/environments/environment.prod';
 export class UserProductComponent implements OnInit {
 
   produto: Produto = new Produto()
-  listaProdutos: Produto[] 
+  produtoAdd: Produto = new Produto()
+  listaProdutos: Produto[]
   listaCategorias: Categoria[]
   categoria : Categoria = new Categoria()
   idCategoria : number
@@ -65,11 +66,11 @@ export class UserProductComponent implements OnInit {
 
 
   cadastrar(){
-    this.produtoService.postProduto(this.produto).subscribe((resp: Produto) =>{
-      this.produto = resp
+    this.produtoService.postProduto(this.produtoAdd).subscribe((resp: Produto) =>{
+      this.produtoAdd = resp
       alert('Produto cadastrado com sucesso!')
       //this.findAllProduto()
-      this.produto = new Produto()
+      this.produtoAdd = new Produto()
     }
     )
   }

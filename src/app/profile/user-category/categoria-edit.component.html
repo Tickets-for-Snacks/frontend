@@ -39,9 +39,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of listaCategorias">
-            <th>{{categoria.id}}</th>
-            <td>{{categoria.iconeCategoria}}</td>
-            <td>{{categoria.descricaoCategoria}}</td>
+            <th>{{item.id}}</th>
+            <td>{{item.iconeCategoria}}</td>
+            <td>{{item.descricaoCategoria}}</td>
             <td class="d-flex justify-content-end">
               <!-- <button class="btn btn-info mr-3" </button> [routerLink]="['/tema-edit', item.id]" >Editor</button> -->
               <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editor">Editor</button>
@@ -104,11 +104,11 @@
       <div class="modal-body">
         <div class="form-group">
           <label for="">Icone:</label>
-          <input [(ngModel)]='categoria.iconeCategoria' type="text" id="icone" class="rounded-pill form-control">
+          <input [(ngModel)]='categoriaAdd.iconeCategoria' type="text" id="icone" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Descrição:</label>
-          <input [(ngModel)]='categoria.descricaoCategoria' type="textarea" id="descricao" class="rounded-pill form-control">
+          <input [(ngModel)]='categoriaAdd.descricaoCategoria' type="textarea" id="descricao" class="rounded-pill form-control">
         </div>
       </div>
 

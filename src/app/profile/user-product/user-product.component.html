@@ -16,8 +16,9 @@
       </div>
     </div>
 
-    <div  class="col-md-12 d-flex justify-content-center mt-3 mb-3">
-      <button class="btn btn-success rounded-pill pr-4 pl-4 mr-3" data-toggle="modal" data-target="#adicionar">Adicionar</button>
+    <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
+      <button class="btn btn-success rounded-pill pr-4 pl-4 mr-3" data-toggle="modal"
+        data-target="#adicionar">Adicionar</button>
     </div>
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3 mt-5 mb-5">
@@ -26,18 +27,19 @@
           <div class="carousel-item active">
 
             <div class="row">
-              <div *ngFor="let number of listaProdutos "  class="col-md-4 mb-3">
+              <div *ngFor="let number of listaProdutos " class="col-md-4 mb-3">
                 <div class="card">
-                  <img class="img-fluid" alt="100%x280"
-                    src="{{produto.foto}}">
+                  <img class="img-fluid" alt="100%x280" src="{{produto.foto}}">
                   <div class="card-body">
                     <h4 class="card-title">{{produto.nomeTicket}}</h4>
                     <p class="card-text">{{produto.descricaoTicket}}</p>
                   </div>
                 </div>
                 <div class="col d-flex justify-content-center mt-4">
-                  <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3"  data-toggle="modal" data-target="#editor">Editar</button>
-                  <button class="btn btn-danger rounded-pill pr-3 pl-3"  data-toggle="modal" data-target="#apagar">Apagar</button>
+                  <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3" data-toggle="modal"
+                    data-target="#editor">Editar</button>
+                  <button class="btn btn-danger rounded-pill pr-3 pl-3" data-toggle="modal"
+                    data-target="#apagar">Apagar</button>
                 </div>
               </div>
             </div>
@@ -48,8 +50,7 @@
             <div class="row">
               <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
                 <div class="card">
-                  <img class="img-fluid" alt="100%x280"
-                    src="{{produto.foto}}">
+                  <img class="img-fluid" alt="100%x280" src="{{produto.foto}}">
                   <div class="card-body">
                     <h4 class="card-title">{{produto.nomeTicket}}</h4>
                     <p class="card-text">{{produto.descricaoTicket}}</p>
@@ -65,11 +66,10 @@
             <div class="row">
               <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
                 <div class="card">
-                  <img class="img-fluid" alt="100%x280"
-                    src="{{produto.foto}}">
+                  <img class="img-fluid" alt="100%x280" src="{{number.foto}}">
                   <div class="card-body">
-                    <h4 class="card-title">{{produto.nomeTicket}}</h4>
-                    <p class="card-text">{{produto.descricaoTicket}}</p>
+                    <h4 class="card-title">{{number.nomeTicket}}</h4>
+                    <p class="card-text">{{number.descricaoTicket}}</p>
                   </div>
                 </div>
                 <button class="btn btn-danger">Editar</button>
@@ -124,23 +124,24 @@
         </div>
         <div class="form-group">
           <label for="">Nome do Ticket:</label>
-          <input [(ngModel)]='produto.nomeTicket' type="text" id="nomeT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdd.nomeTicket' type="text" id="nomeT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Valor do Ticket:</label>
-          <input [(ngModel)]='produto.valorTicket' type="number" id="valorT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdd.valorTicket' type="number" id="valorT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Descrição do Ticket:</label>
-          <input [(ngModel)]='produto.descricaoTicket' type="textarea" id="descricaoT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdd.descricaoTicket' type="textarea" id="descricaoT"
+            class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Imagem do Ticket:</label>
-          <input [(ngModel)]='produto.foto' type="text" id="imagemT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdd.foto' type="text" id="imagemT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Data e hora do Ticket:</label>
-          <input [(ngModel)]='produto.dataHoraTicket' type="date" id="dataHoraT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdd.dataHoraTicket' type="date" id="dataHoraT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Categoria do Ticket:</label>

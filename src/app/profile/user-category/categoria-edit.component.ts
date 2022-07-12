@@ -9,10 +9,11 @@ import { CategoriaService } from 'src/app/service/categoria.service';
   styleUrls: ['./categoria-edit.component.css']
 })
 export class CategoriaEditComponent implements OnInit {
-   
+
   idCategoria: number
   categoria: Categoria = new Categoria()
-  listaCategorias: Categoria[] 
+  categoriaAdd: Categoria = new Categoria()
+  listaCategorias: Categoria[]
 
   constructor(
     private categoriaService: CategoriaService,
@@ -29,6 +30,7 @@ export class CategoriaEditComponent implements OnInit {
       this.categoria = resp;
     });
   }
+  
   getAllCategoria() {
     this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
       this.listaCategorias = resp;
@@ -36,11 +38,11 @@ export class CategoriaEditComponent implements OnInit {
   }
 
   cadastrar(){
-    this.categoriaService.postCategoria(this.categoria).subscribe((resp: Categoria) =>{
-      this.categoria = resp
+    this.categoriaService.postCategoria(this.categoriaAdd).subscribe((resp: Categoria) =>{
+      this.categoriaAdd = resp
       alert('Categoria cadastrado com sucesso!')
       //this.findAllCategoria()
-      this.categoria = new Categoria()
+      this.categoriaAdd = new Categoria()
     }
     )
   }

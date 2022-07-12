@@ -18,6 +18,15 @@ token={
   headers: new HttpHeaders().set('Authorization', environment.token)
 }
 
+getAllProduto(): Observable<Produto[]>{
+  return this.http.get<Produto[]>('https://ticketsforsnacks.herokuapp.com/produtos', this.token)
+}
+
+getByIdProduto(id: number): Observable<Produto>{
+  return this.http.get<Produto>(`https://ticketsforsnacks.herokuapp.com/produtos/${id}`, this.token)
+}
+
+
 postProduto(produto: Produto): Observable<Produto>{
   return this.http.post<Produto>('https://ticketsforsnacks.herokuapp.com/produtos', produto, this.token)
 }

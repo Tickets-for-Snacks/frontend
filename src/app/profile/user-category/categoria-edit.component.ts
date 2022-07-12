@@ -9,7 +9,8 @@ import { CategoriaService } from 'src/app/service/categoria.service';
   styleUrls: ['./categoria-edit.component.css']
 })
 export class CategoriaEditComponent implements OnInit {
-
+   
+  idCategoria: number
   categoria: Categoria = new Categoria()
   listaCategorias: Categoria[] 
 
@@ -20,7 +21,18 @@ export class CategoriaEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   
+   this.getAllCategoria()
+  }
+
+  findByIdCategoria() {
+    this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria) => {
+      this.categoria = resp;
+    });
+  }
+  getAllCategoria() {
+    this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
+      this.listaCategorias = resp;
+    });
   }
 
   cadastrar(){

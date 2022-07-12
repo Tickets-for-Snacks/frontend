@@ -18,6 +18,20 @@ token={
   headers: new HttpHeaders().set('Authorization', environment.token)
 }
 
+getAllCategoria(): Observable<Categoria[]> {
+  return this.http.get<Categoria[]>(
+    'https://ticketsforsnacks.herokuapp.com/categorias',
+    this.token
+  );
+}
+
+getByIdCategoria(id: number): Observable<Categoria>  {
+  return this.http.get<Categoria>(
+    `https://ticketsforsnacks.herokuapp.com/categorias/${id}`,
+    this.token
+  );
+}
+
 postCategoria(categoria: Categoria): Observable<Categoria>{
   return this.http.post<Categoria>('https://ticketsforsnacks.herokuapp.com/categorias', categoria, this.token)
 }

@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutusComponent } from './aboutUs/aboutus.component';
-import { ContactComponent } from './contact/contact.component';
-import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
-import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
-import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
-import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
-import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { AboutusComponent } from './mainPages/aboutUs/aboutus.component';
+import { ContactComponent } from './mainPages/contact/contact.component';
+import { HomeComponent } from './mainPages/home/home.component';
+import { LoginComponent } from './mainPages/login/login.component';
+import { RegisterComponent } from './mainPages/register/register.component';
 import { ProductComponent } from './product/product.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RegisterComponent } from './register/register.component';
-import { UserProductComponent } from './user-product/user-product.component';
+import { CategoriaEditComponent } from './profile/user-category/categoria-edit.component';
+import { UserProductComponent } from './profile/user-product/user-product.component';
+import { ProfileComponent } from './profile/user-profile/profile.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,13 +22,11 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent },
 
   { path: 'categoria-edit', component: CategoriaEditComponent },
-  { path: 'produto-edit', component: ProdutoEditComponent },
-  { path: 'usuario-edit', component: UsuarioEditComponent },
-  { path: 'categoria-delete', component: CategoriaDeleteComponent },
-  { path: 'produto-delete', component: ProdutoDeleteComponent },
 
   { path: 'profile', component: ProfileComponent },
   { path: 'user-product', component: UserProductComponent },
+
+
 ];
 
 @NgModule({

@@ -7,3 +7,11 @@
   padding: 0;
   margin: 0;
 }
+
+.fs-100{
+  font-size: 100px;
+}
+
+#selected:focus{
+  background-color: green !important;
+}

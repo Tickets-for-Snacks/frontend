@@ -1,0 +1,14 @@
+input{
+  border-radius: 500px;
+}
+
+#imgbg{
+  background-image: url('../../assets/img/login.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+}
+
+#bgLogin{
+  background-color:#f4e4b4;
+}

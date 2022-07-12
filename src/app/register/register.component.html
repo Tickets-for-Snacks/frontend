@@ -1,22 +1,24 @@
-<div class="container-fluid" id="imgbg">
+<div class="container-fluid pt-5" id="imgbg">
 
-  <div class="row d-flex align-items-center pt-5">
+  <div class="row d-flex align-items-center" id="paddingCenterTop">
     <div class="col-md-3"></div>
     <div class="col-md-6 rounded " id="bgRegister">
 
-      <h1 class="text-center mb-3 ">Cadastro</h1>
+      <h1 class="text-center mb-3 pt-3">Cadastro</h1>
 
       <div class="row d-flex justify-content-center ">
-        <div class="col-md-6 ">
+        <div class="col-md-5 ">
 
           <div class="form-group">
             <label for="email">E-mail:</label>
-            <input [(ngModel)]="user.usuario" class="form-control" type="text" name="email" id="email" placeholder="Seu e-mail">
+            <input [(ngModel)]="user.usuario" class="form-control" type="text" name="email" id="email"
+              placeholder="Seu e-mail">
           </div>
 
           <div class="form-group">
             <label for="senha">Senha:</label>
-            <input (input)="confirmSenha($event)" class="form-control " type="password" name="senha" id="senha" placeholder="Sua senha ">
+            <input (input)="confirmSenha($event)" class="form-control " type="password" name="senha" id="senha"
+              placeholder="Sua senha ">
           </div>
 
           <div class="form-group">
@@ -27,7 +29,9 @@
 
         </div>
 
-        <div class="col-md-6">
+        <div class="col-2"></div>
+
+        <div class="col-md-5  ">
 
           <div class="form-group">
             <label for="nome">Nome:</label>
@@ -43,7 +47,7 @@
 
           <div class="form-group">
             <label for="tipo">Tipo de Usuário</label>
-            <select class="form-control" name="tipo" id="tipo"(change)='tipoUser($event)'>
+            <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
               <option>Selecione um tipo de usuário:</option>
               <option value="normal">Cliente</option>
               <option value="empresa">Empresa</option>
@@ -53,10 +57,14 @@
           </div>
 
         </div>
-        <div class="col-md-12 pt-3">
+
+      </div>
+
+      <div class="row">
+        <div class="col-12 pt-3 mt-5">
           <div class="d-flex justify-content-center pb-5 mb-5">
             <button type="submit" class="btn btn-success mr-3" (click)="cadastrar()">Cadastrar</button>
-            <button type="submit" class="btn btn-danger" routerLink="/login">Cancelar</button>
+            <button type="submit" class="btn btn-danger" routerLink="/inicio">Cancelar</button>
           </div>
         </div>
       </div>

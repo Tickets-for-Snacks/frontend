@@ -1,4 +1,5 @@
-<app-menu></app-menu>
+<app-menu *ngIf="auth.noLogado()"></app-menu>
+<app-menu-after-login *ngIf="auth.logado()"></app-menu-after-login>
 <div id="imgbackground">
   <router-outlet></router-outlet>
 </div>

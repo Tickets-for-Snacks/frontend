@@ -70,21 +70,21 @@
 
       <div class="modal-body">
         <div class="form-group">
-          <label for="">ID do produto: 'COLOCAR ID AQUI'</label>
+          <label for="">ID do produto: {{categoriaEdit.id}}'</label>
         </div>
         <div class="form-group">
           <label for="">Icone:</label>
-          <input type="text" id="icone" class="rounded-pill form-control">
+          <input [(ngModel)]='categoriaEdit.iconeCategoria' type="text" id="icone" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Descrição:</label>
-          <input type="textarea" id="descricao" class="rounded-pill form-control">
+          <input [(ngModel)]='categoriaEdit.descricaoCategoria' type="textarea" id="descricao" [(ngModel)]='categoria.descricaoCategoria' class="rounded-pill form-control">
         </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="atualizar()">Save changes</button>
       </div>
     </div>
   </div>

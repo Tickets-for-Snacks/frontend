@@ -134,27 +134,27 @@
 
       <div class="modal-body">
         <div class="form-group">
-          <label for="">ID do produto: 'COLOCAR ID AQUI'</label>
+          <label for="">ID do produto: {{produtoEdit.id}}</label>
         </div>
         <div class="form-group">
           <label for="">Nome do Ticket:</label>
-          <input type="text" id="nomeT" class="rounded-pill form-control">
+          <input  [(ngModel)]='produtoEdit.nomeTicket'  type="text" id="nomeT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Valor do Ticket:</label>
-          <input type="number" id="valorT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoEdit.valorTicket' type="number" id="valorT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Descrição do Ticket:</label>
-          <input type="textarea" id="descricaoT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoEdit.descricaoTicket' type="textarea" id="descricaoT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Imagem do Ticket:</label>
-          <input type="text" id="imagemT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoEdit.foto' type="text" id="imagemT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
-          <label for="">Data e horo do Ticket:</label>
-          <input type="date" id="dataHoraT" class="rounded-pill form-control">
+          <label for="">Data e hora do Ticket:</label>
+          <input [(ngModel)]='produtoEdit.dataHoraTicket' type="date" id="dataHoraT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Categoria do Ticket:</label>
@@ -166,7 +166,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="atualizar()">Save changes</button>
       </div>
     </div>
   </div>

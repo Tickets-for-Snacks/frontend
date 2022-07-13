@@ -11,7 +11,7 @@ export class CategoriaService {
 
   constructor(
     private http: HttpClient
-    
+
   ) { }
 
 token={
@@ -35,6 +35,11 @@ getByIdCategoria(id: number): Observable<Categoria>  {
 postCategoria(categoria: Categoria): Observable<Categoria>{
   return this.http.post<Categoria>('https://ticketsforsnacks.herokuapp.com/categorias', categoria, this.token)
 }
+
+putCategoria(categoria: Categoria):Observable<Categoria>{
+  return this.http.put<Categoria>('https://ticketsforsnacks.herokuapp.com/categorias', categoria, this.token)
+}
+
 }
 
 

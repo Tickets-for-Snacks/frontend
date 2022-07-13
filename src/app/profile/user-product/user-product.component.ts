@@ -17,6 +17,7 @@ export class UserProductComponent implements OnInit {
 
   produto: Produto = new Produto()
   produtoAdd: Produto = new Produto()
+  produtoEdit: Produto = new Produto()
   listaProdutos: Produto[]
   listaCategorias: Categoria[]
   categoria : Categoria = new Categoria()
@@ -71,7 +72,18 @@ export class UserProductComponent implements OnInit {
       alert('Produto cadastrado com sucesso!')
       //this.findAllProduto()
       this.produtoAdd = new Produto()
-    }
-    )
+    })
   }
+
+  atualizar(){
+    this.categoria.id = this.idCategoria
+    this.produtoEdit.categorias = this.categoria
+
+    this.produtoService.postProduto(this.produtoEdit).subscribe((resp: Produto) => {
+      this.produtoEdit = resp
+      alert('Produto atualizado com sucesso!')
+    })
+  }
+
+
 }

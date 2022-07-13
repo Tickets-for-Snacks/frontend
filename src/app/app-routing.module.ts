@@ -23,7 +23,7 @@ const routes: Routes = [
 
   { path: 'categoria-edit', component: CategoriaEditComponent },
 
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:id', component: ProfileComponent },
   { path: 'user-product', component: UserProductComponent },
 
 

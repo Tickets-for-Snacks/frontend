@@ -12,7 +12,7 @@ export class MenuAfterLoginComponent implements OnInit {
   nome = environment.nome
   foto = environment.foto
   id = environment.id
-  tipo = environment.tipo
+  usuario = environment.usuario
 
   constructor(private router: Router) { }
 

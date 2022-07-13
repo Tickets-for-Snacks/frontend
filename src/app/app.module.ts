@@ -17,6 +17,7 @@ import { UserProductComponent } from './profile/user-product/user-product.compon
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './mainPages/login/login.component';
 import { ProfileComponent } from './profile/user-profile/profile.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -43,7 +44,10 @@ import { ProfileComponent } from './profile/user-profile/profile.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

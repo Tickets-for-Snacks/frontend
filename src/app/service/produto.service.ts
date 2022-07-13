@@ -11,7 +11,7 @@ export class ProdutoService {
 
   constructor(
     private http: HttpClient
-    
+
   ) { }
 
 token={
@@ -30,4 +30,11 @@ getByIdProduto(id: number): Observable<Produto>{
 postProduto(produto: Produto): Observable<Produto>{
   return this.http.post<Produto>('https://ticketsforsnacks.herokuapp.com/produtos', produto, this.token)
 }
+
+putPostagem(produto: Produto): Observable<Produto>{
+  return this.http.put<Produto>('https://ticketsforsnacks.herokuapp.com/produtos', produto, this.token)
 }
+
+}
+
+

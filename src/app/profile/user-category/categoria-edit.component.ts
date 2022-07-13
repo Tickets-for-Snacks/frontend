@@ -13,12 +13,14 @@ export class CategoriaEditComponent implements OnInit {
   idCategoria: number
   categoria: Categoria = new Categoria()
   categoriaAdd: Categoria = new Categoria()
+  categoriaEdit: Categoria = new Categoria()
   listaCategorias: Categoria[]
 
   constructor(
     private categoriaService: CategoriaService,
     private router: Router,
     private route: ActivatedRoute
+
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class CategoriaEditComponent implements OnInit {
       this.categoria = resp;
     });
   }
-  
+
   getAllCategoria() {
     this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
       this.listaCategorias = resp;
@@ -43,8 +45,17 @@ export class CategoriaEditComponent implements OnInit {
       alert('Categoria cadastrado com sucesso!')
       //this.findAllCategoria()
       this.categoriaAdd = new Categoria()
-    }
-    )
+    })
   }
 
+    atualizar(){
+      this.categoriaService.putCategoria(this.categoriaEdit).subscribe((resp: Categoria)=>{
+        this.categoriaEdit = resp
+        alert('Categoria atualizado com sucesso!')
+      })
+  }
 }
+
+
+
+

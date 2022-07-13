@@ -22,60 +22,21 @@
     </div>
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3 mt-5 mb-5">
-      <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
 
-            <div class="row">
-              <div *ngFor="let number of listaProdutos " class="col-md-4 mb-3">
-                <div class="card">
-                  <img class="img-fluid" alt="100%x280" src="{{produto.foto}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{produto.nomeTicket}}</h4>
-                    <p class="card-text">{{produto.descricaoTicket}}</p>
-                  </div>
-                </div>
-                <div class="col d-flex justify-content-center mt-4">
-                  <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3" data-toggle="modal"
-                    data-target="#editor">Editar</button>
-                  <button class="btn btn-danger rounded-pill pr-3 pl-3" data-toggle="modal"
-                    data-target="#apagar">Apagar</button>
-                </div>
-              </div>
+      <div class="row">
+        <div *ngFor="let number of listaProdutos " class="col-md-4 mb-3">
+          <div class="card">
+            <img class="img-fluid" alt="100%x280" src="{{produto.foto}}">
+            <div class="card-body">
+              <h4 class="card-title">{{produto.nomeTicket}}</h4>
+              <p class="card-text">{{produto.descricaoTicket}}</p>
             </div>
           </div>
-
-          <div class="carousel-item">
-
-            <div class="row">
-              <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
-                <div class="card">
-                  <img class="img-fluid" alt="100%x280" src="{{produto.foto}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{produto.nomeTicket}}</h4>
-                    <p class="card-text">{{produto.descricaoTicket}}</p>
-                  </div>
-                </div>
-                <button class="btn btn-danger">Editar</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-
-            <div class="row">
-              <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
-                <div class="card">
-                  <img class="img-fluid" alt="100%x280" src="{{number.foto}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{number.nomeTicket}}</h4>
-                    <p class="card-text">{{number.descricaoTicket}}</p>
-                  </div>
-                </div>
-                <button class="btn btn-danger">Editar</button>
-              </div>
-            </div>
-
+          <div class="col d-flex justify-content-center mt-4">
+            <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3" data-toggle="modal"
+              data-target="#editor">Editar</button>
+            <button class="btn btn-danger rounded-pill pr-3 pl-3" data-toggle="modal"
+              data-target="#apagar">Apagar</button>
           </div>
         </div>
       </div>

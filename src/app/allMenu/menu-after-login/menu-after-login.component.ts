@@ -9,13 +9,23 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class MenuAfterLoginComponent implements OnInit {
 
+  nome = environment.nome
+  foto = environment.foto
+  id = environment.id
+  tipo = environment.tipo
+
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    window.scroll(0,0)
   }
 
   logoff(){
     environment.token = ''
+    environment.nome = ''
+    environment.foto = ''
+    environment.id = 0
+    environment.tipo = ''
     this.router.navigate(['/login'])
   }
 

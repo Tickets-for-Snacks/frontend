@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Usuario } from "src/app/model/Usuario";
+import { AuthService } from "src/app/service/auth.service";
+import { environment } from "src/environments/environment.prod";
+
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +12,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  usuario: Usuario = new Usuario();
+  idUser: number
+  confirmSenha: string;
+  tipoUsuario: string;
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    window.scroll(0, 0);
+
+
   }
 
+  confirmarSenha(event: any) {
+    this.confirmSenha = event.target.value;
+  }
+
+  tipoUser(event: any) {
+    this.tipoUsuario = event.target.value;
+  }
+
+  atualizar(){
+    this.usuario.tipo = this.tipoUsuario
+
+    if(this.usuario.senha != this.confirmSenha){
+      alert('As senhas estão incorretas.')
+    } else {
+      this.authService.atualizar(this.usuario).subscribe((resp: Usuario) => {
+        this.usuario = resp
+        this.router.navigate(["/home"])
+        alert('Usuário atualizado com sucesso, faça login novamente!')
+        environment.token = ''
+        environment.nome = ''
+        environment.foto = ''
+        environment.id = 0
+        this.router.navigate(['/home'])
+      })
+    }
+  }
+
+  findByIdUsuario(id: number){
+    this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
+      this.usuario = resp
+    })
+  }
 }

@@ -15,8 +15,8 @@ import { CategoriaEditComponent } from './profile/user-category/categoria-edit.c
 import { MenuAfterLoginComponent } from './allMenu/menu-after-login/menu-after-login.component';
 import { UserProductComponent } from './profile/user-product/user-product.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProfileComponent } from './profile/user-profile/profile.component';
 import { LoginComponent } from './mainPages/login/login.component';
+import { ProfileComponent } from './profile/user-profile/profile.component';
 
 
 

@@ -17,64 +17,22 @@
       </div>
     </div>
 
-    <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
-      <button *ngFor="let item of listaCategorias" id="selected"
-        class="btn btn-secondary rounded-pill pr-4 pl-4 mr-3">{{item.descricaoCategoria}}</button>
+    <div *ngFor="let item of listaCategorias">
+      <div class="col-md-12 mt-3 mb-3">
+        <button id="selected" class="btn btn-secondary rounded-pill pr-5 pl-5 mr-3">{{item.descricaoCategoria}}</button>
+      </div>
     </div>
-
-    <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
-      <button *ngFor="let item of listaCategorias" id="selected"
-        class="btn btn-secondary rounded-pill pr-4 pl-4 mr-3">{{item.descricaoCategoria}}</button>
-    </div>
-
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3 mt-5 mb-5">
-      <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
 
-            <div class="row">
-              <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
-                <div class="card">
-                  <img class="img-fluid" alt="100%x280" src="{{number.foto}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{number.nomeTicket}}</h4>
-                    <p class="card-text">{{number.descricaoTicket}}</p>
-                  </div>
-                </div>
-              </div>
+      <div class="row">
+        <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
+          <div class="card">
+            <img class="img-fluid" alt="100%x280" src="{{number.foto}}">
+            <div class="card-body">
+              <h4 class="card-title">{{number.nomeTicket}}</h4>
+              <p class="card-text">{{number.descricaoTicket}}</p>
             </div>
-          </div>
-
-          <div class="carousel-item">
-
-            <div class="row">
-              <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
-                <div class="card">
-                  <img class="img-fluid" alt="100%x280" src="{{number.foto}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{number.nomeTicket}}</h4>
-                    <p class="card-text">{{number.descricaoTicket}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-
-            <div class="row">
-              <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
-                <div class="card">
-                  <img class="img-fluid" alt="100%x280" src="{{number.foto}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{number.nomeTicket}}</h4>
-                    <p class="card-text">{{number.descricaoTicket}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

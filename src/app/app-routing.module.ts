@@ -5,6 +5,7 @@ import { ContactComponent } from './mainPages/contact/contact.component';
 import { HomeComponent } from './mainPages/home/home.component';
 import { LoginComponent } from './mainPages/login/login.component';
 import { RegisterComponent } from './mainPages/register/register.component';
+import { PagTicketComponent } from './product/pag-ticket/pag-ticket.component';
 import { ProductComponent } from './product/product.component';
 import { CategoriaEditComponent } from './profile/user-category/categoria-edit.component';
 import { UserProductComponent } from './profile/user-product/user-product.component';
@@ -22,9 +23,10 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent },
 
   { path: 'categoria-edit', component: CategoriaEditComponent },
+  { path: 'user-product', component: UserProductComponent },
 
   { path: 'profile/:id', component: ProfileComponent },
-  { path: 'user-product', component: UserProductComponent },
+  { path: 'pag-ticket/:id', component: PagTicketComponent },
 
 
 ];

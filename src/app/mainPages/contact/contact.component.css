@@ -1,5 +1,13 @@
 #bgContato{
   background-color:#f4e4b4 !important;
 }
-
+#imgbg{
+  background-image: url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?cs=srgb&dl=pexels-ella-olsson-1640774.jpg&fm=jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+}
+input{
+  border-radius: 500px;
+}
 

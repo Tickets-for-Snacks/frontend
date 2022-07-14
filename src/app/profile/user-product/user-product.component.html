@@ -159,11 +159,11 @@
           <input [(ngModel)]='produtoAlterar.dataHoraTicket' type="date" class="rounded-pill form-control">
         </div>
         <div class="form-group">
-          <label for="">Categoria do Ticket: {{produtoAlterar.categorias?.descricaoCategoria}} <br>Selecione uma das
-            categorias abaixo para alterar.</label>
+          <label for="">Selecione uma das categorias abaixo para alterar.</label>
           <select [(ngModel)]="produtoAlterar.categorias" class="form-control">
             <option *ngFor="let item of listaCategorias" [ngValue]="item">{{item.descricaoCategoria}}</option>
           </select>
+          <small>Categoria anterior: {{produtoAlterar.categorias.descricaoCategoria}}</small>
         </div>
       </div>
 

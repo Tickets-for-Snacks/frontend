@@ -19,6 +19,7 @@ import { LoginComponent } from './mainPages/login/login.component';
 import { ProfileComponent } from './profile/user-profile/profile.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TokenInterceptorService } from './service/token-interceptor.service';
+import { PagTicketComponent } from './product/pag-ticket/pag-ticket.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
     MenuAfterLoginComponent,
     ProfileComponent,
     UserProductComponent,
+    PagTicketComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [

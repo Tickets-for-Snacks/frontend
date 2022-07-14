@@ -26,15 +26,17 @@
 
       <div class="row">
         <div *ngFor="let number of listaProdutos" class="col-md-3 m-3">
-          <div class="card">
-            <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize">
-            <div class="card-body">
-              <h4 class="card-title">{{number.nomeTicket}}</h4>
-              <p class="card-text">Preço: R${{number.valorTicket}}</p>
-              <small class="card-text">{{number.descricaoTicket}}</small><br>
-              <small class="card-text">{{number.categorias.descricaoCategoria}}</small>
+          <a [routerLink]="['/pag-ticket', number.id]">
+            <div class="card">
+              <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize">
+              <div class="card-body">
+                <h4 class="card-title">{{number.nomeTicket}}</h4>
+                <p class="card-text">Preço: R${{number.valorTicket}}</p>
+                <small class="card-text">{{number.descricaoTicket}}</small><br>
+                <small class="card-text">{{number.categorias.descricaoCategoria}}</small>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>

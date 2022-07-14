@@ -1,0 +1,39 @@
+<div class="container pt-5">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="row">
+
+        <div class="col-md-6">
+          <img src="{{produto.foto}}" alt="" class="minSize" (error)="verificaImagem($event)">
+        </div>
+
+        <div class="col-md-1">
+          <div class="linha-vertical mr-5"></div>
+        </div>
+
+        <div class="col-md-5">
+          <h2 class="font-weight-bold">Categoria: {{produto.categorias.descricaoCategoria}}</h2>
+          <h3 class="font-weight-bold">{{produto.nomeTicket}}</h3>
+          <h3>Data e Hora do Ticket: {{produto.dataHoraTicket}}</h3>
+          <h3>Quantidade de Tickets: <input type="number" id="valorT" class="w-25 rounded" placeholder="1"></h3>
+          <h3>Valor total do Ticket: R${{produto.valorTicket}}</h3>
+          <button class="btn btn-success pr-5 pl-5 mt-5">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+
+    <div class="col-md-12 text-center mb-5">
+      <h2 class="font-weight-bold">Descrição do Ticket</h2>
+    </div>
+
+    <div class="col-md-12 borderSolid rounded pb-5 mb-5">
+      <h3>{{produto.descricaoTicket}}</h3>
+    </div>
+
+  </div>
+
+</div>

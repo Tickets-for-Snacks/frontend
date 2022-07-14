@@ -7,10 +7,10 @@ select{
 }
 
 #imgbg{
-  background-image: url('https://cdn.discordapp.com/attachments/976239165073141780/993573786140016760/unknown.png');
+  background-image: url('../../../assets/img/061E03.png');
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 90vh;
+  min-height: 80vh;
 }
 
 #bgRegister{

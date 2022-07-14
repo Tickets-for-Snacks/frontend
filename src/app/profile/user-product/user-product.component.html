@@ -21,22 +21,24 @@
         data-target="#adicionar">Adicionar</button>
     </div>
 
-    <div class="col-md-12 d-flex justify-content-center mt-3 mb-3 mt-5 mb-5">
+    <div class="col-md-12 m-5">
 
       <div class="row">
-        <div *ngFor="let number of listaProdutos " class="col-md-4 mb-3">
+        <div *ngFor="let item of usuario.produtos " class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" alt="100%x280" src="{{produto.foto}}">
+            <img class="img-fluid" alt="100%x280" src="{{item.foto}}" (error)="verificaImagem($event)" id="minSize">
             <div class="card-body">
-              <h4 class="card-title">{{produto.nomeTicket}}</h4>
-              <p class="card-text">{{produto.descricaoTicket}}</p>
+              <h4 class="card-title">{{item.nomeTicket}}</h4>
+              <p class="card-text">Preço: R${{item.valorTicket}}</p>
+              <small class="card-text">{{item.descricaoTicket}}</small><br>
+              <small class="card-text">{{item.categorias.descricaoCategoria}}</small>
             </div>
           </div>
           <div class="col d-flex justify-content-center mt-4">
-            <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3" data-toggle="modal"
-              data-target="#editor">Editar</button>
-            <button class="btn btn-danger rounded-pill pr-3 pl-3" data-toggle="modal"
-              data-target="#apagar">Apagar</button>
+            <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3" data-toggle="modal" data-target="#editor"
+              (click)="editar(item.id)">Editar</button>
+            <button class="btn btn-danger rounded-pill pr-3 pl-3" data-toggle="modal" data-target="#apagar"
+              (click)="apagar(item.id)">Apagar</button>
           </div>
         </div>
       </div>
@@ -64,7 +66,6 @@
       </nav>
     </div>
 
-
   </div>
 </div>
 
@@ -85,41 +86,42 @@
         </div>
         <div class="form-group">
           <label for="">Nome do Ticket:</label>
-          <input [(ngModel)]='produtoAdd.nomeTicket' type="text" id="nomeT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.nomeTicket' type="text" id="nomeT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Valor do Ticket:</label>
-          <input [(ngModel)]='produtoAdd.valorTicket' type="number" id="valorT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.valorTicket' type="number" id="valorT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Descrição do Ticket:</label>
-          <input [(ngModel)]='produtoAdd.descricaoTicket' type="textarea" id="descricaoT"
+          <input [(ngModel)]='produtoAdicionar.descricaoTicket' type="textarea" id="descricaoT"
             class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Imagem do Ticket:</label>
-          <input [(ngModel)]='produtoAdd.foto' type="text" id="imagemT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.foto' type="text" id="imagemT" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Data e hora do Ticket:</label>
-          <input [(ngModel)]='produtoAdd.dataHoraTicket' type="date" id="dataHoraT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.dataHoraTicket' type="date" id="dataHoraT"
+            class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Categoria do Ticket:</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option *ngFor="let item of [0,1,2,3]">Inserir variavel</option>
+          <select name="categoria" id="categoria" class="form-control" [(ngModel)]="idCategoria"
+            (change)="findByIdCategoria()">
+            <option *ngFor="let item of listaCategorias" value="{{item.id}}">{{item.descricaoCategoria}}</option>
           </select>
         </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)='cadastrar()'>Save changes</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)='cadastrar()'>Acrescentar produto</button>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- Modal Editar -->
 <div class="modal fade" id="editor" tabindex="-1" role="dialog" aria-labelledby="editorTitle" aria-hidden="true">
@@ -134,60 +136,68 @@
 
       <div class="modal-body">
         <div class="form-group">
-          <label for="">ID do produto: {{produtoEdit.id}}</label>
+          <label for="">ID do produto: {{produtoAlterar.id}}</label>
         </div>
         <div class="form-group">
           <label for="">Nome do Ticket:</label>
-          <input  [(ngModel)]='produtoEdit.nomeTicket'  type="text" id="nomeT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.nomeTicket' type="text" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Valor do Ticket:</label>
-          <input [(ngModel)]='produtoEdit.valorTicket' type="number" id="valorT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.valorTicket' type="number" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Descrição do Ticket:</label>
-          <input [(ngModel)]='produtoEdit.descricaoTicket' type="textarea" id="descricaoT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.descricaoTicket' type="textarea" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Imagem do Ticket:</label>
-          <input [(ngModel)]='produtoEdit.foto' type="text" id="imagemT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.foto' type="text" class="rounded-pill form-control">
         </div>
         <div class="form-group">
           <label for="">Data e hora do Ticket:</label>
-          <input [(ngModel)]='produtoEdit.dataHoraTicket' type="date" id="dataHoraT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.dataHoraTicket' type="date" class="rounded-pill form-control">
         </div>
         <div class="form-group">
-          <label for="">Categoria do Ticket:</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option *ngFor="let item of [0,1,2,3]">Inserir variavel</option>
+          <label for="">Categoria do Ticket: {{produtoAlterar.categorias?.descricaoCategoria}} <br>Selecione uma das
+            categorias abaixo para alterar.</label>
+          <select [(ngModel)]="produtoAlterar.categorias" class="form-control">
+            <option *ngFor="let item of listaCategorias" [ngValue]="item">{{item.descricaoCategoria}}</option>
           </select>
         </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="atualizar()">Save changes</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="atualizar()">Salvar Edições</button>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Modal Apagar -->
 <div class="modal fade" id="apagar" tabindex="-1" role="dialog" aria-labelledby="apagarTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="apagarLongTitle">Deletar categoria</h5>
+        <h5 class="modal-title" id="apagarLongTitle">Deletar produto</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Você tem certeza que gostaria de apagar a categoria?
+        <div class="form-group">
+          <label for="">ID do produto: {{produtoApagar.id}}</label>
+        </div>
+        <div class="form-group">
+          <label for="">Você tem certeza que gostaria de apagar o produto?</label>
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Confirmar delete</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletar()">Confirmar delete</button>
       </div>
     </div>
   </div>

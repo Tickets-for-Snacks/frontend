@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -18,9 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './mainPages/login/login.component';
 import { ProfileComponent } from './profile/user-profile/profile.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
-
-
+import { TokenInterceptorService } from './service/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,18 +34,20 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     CategoriaEditComponent,
     MenuAfterLoginComponent,
     ProfileComponent,
-    UserProductComponent
+    UserProductComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

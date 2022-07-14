@@ -23,11 +23,18 @@
       </li>
     </ul>
     <li class="navbar-nav nav-item mr-4">
-      <a class="nav-link" id="hoverzinho" href="#" routerLink="/user-product">Seus Produtos</a>
-    </li>
-    <li class="navbar-nav nav-item mr-4">
-      <a [routerLink]="['/profile', id]" class="nav-link" id="hoverzinho">Perfil</a>
-    </li>
+
+    <div class="dropdown">
+      <a class="dropdown-toggle text-decoration-none"  role="button" id="hoverzinho" data-toggle="dropdown" aria-expanded="false">
+        Dropdown link
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+        <a class="nav-link" id="hoverzinho" href="#" routerLink="/categoria-edit" >Categorias</a>
+        <a class="nav-link" id="hoverzinho" href="#" routerLink="/user-product" >Seus Produtos</a>
+        <a [routerLink]="['/profile', id]" class="nav-link" id="hoverzinho">Perfil</a>
+      </div>
+    </div>
     <li class="navbar-nav nav-item mr-4">
       <a class="nav-link" id="hoverzinho" href="#" routerLink="/login" (click)="logoff()">Sair</a>
     </li>

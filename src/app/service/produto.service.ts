@@ -31,8 +31,12 @@ postProduto(produto: Produto): Observable<Produto>{
   return this.http.post<Produto>('https://ticketsforsnacks.herokuapp.com/produtos', produto, this.token)
 }
 
-putPostagem(produto: Produto): Observable<Produto>{
+putProduto(produto: Produto): Observable<Produto>{
   return this.http.put<Produto>('https://ticketsforsnacks.herokuapp.com/produtos', produto, this.token)
+}
+
+deleteProduto(id: number){
+  return this.http.delete(`https://ticketsforsnacks.herokuapp.com/produtos/${id}`, this.token)
 }
 
 }

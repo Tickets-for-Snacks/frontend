@@ -13,25 +13,26 @@
       <div class="form-group">
         <i class="fa fa-search btn btn-secondary" aria-hidden="true"></i>
         <input class="pr-5 pl-5 pt-2 pb-2 rounded-pill" type="text" placeholder="Pesquise uma categoria">
-        <a class="btn btn-secondary" routerLink="/categoria-edit"><i class="fa fa-plus" aria-hidden="true"></i></a>
       </div>
     </div>
 
     <div *ngFor="let item of listaCategorias">
-      <div class="col-md-12 mt-3 mb-3">
+      <div class="col-md-12 d-flex justify-content-between mt-3 mb-3">
         <button id="selected" class="btn btn-secondary rounded-pill pr-5 pl-5 mr-3">{{item.descricaoCategoria}}</button>
       </div>
     </div>
 
-    <div class="col-md-12 d-flex justify-content-center mt-3 mb-3 mt-5 mb-5">
+    <div class="col-md-12 m-5">
 
       <div class="row">
-        <div *ngFor="let number of listaProdutos" class="col-md-4 mb-3">
+        <div *ngFor="let number of listaProdutos" class="col-md-3 m-3">
           <div class="card">
-            <img class="img-fluid" alt="100%x280" src="{{number.foto}}">
+            <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize">
             <div class="card-body">
               <h4 class="card-title">{{number.nomeTicket}}</h4>
-              <p class="card-text">{{number.descricaoTicket}}</p>
+              <p class="card-text">Preço: R${{number.valorTicket}}</p>
+              <small class="card-text">{{number.descricaoTicket}}</small><br>
+              <small class="card-text">{{number.categorias.descricaoCategoria}}</small>
             </div>
           </div>
         </div>

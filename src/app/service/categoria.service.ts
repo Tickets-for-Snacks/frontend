@@ -40,6 +40,10 @@ putCategoria(categoria: Categoria):Observable<Categoria>{
   return this.http.put<Categoria>('https://ticketsforsnacks.herokuapp.com/categorias', categoria, this.token)
 }
 
+deleteCategoria(id: number){
+  return this.http.delete(`https://ticketsforsnacks.herokuapp.com/categorias/${id}`,this.token)
+}
+
 }
 
 

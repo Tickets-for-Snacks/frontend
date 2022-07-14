@@ -11,21 +11,24 @@ import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-user-product',
   templateUrl: './user-product.component.html',
-  styleUrls: ['./user-product.component.css']
+  styleUrls: ['./user-product.component.css'],
 })
 export class UserProductComponent implements OnInit {
+  produtoAdicionar: Produto = new Produto();
+  produtoAlterar: Produto = new Produto();
+  produtoApagar: Produto = new Produto();
+  produto: Produto = new Produto();
 
-  produto: Produto = new Produto()
-  produtoAdd: Produto = new Produto()
-  produtoEdit: Produto = new Produto()
-  listaProdutos: Produto[]
-  listaCategorias: Categoria[]
-  categoria : Categoria = new Categoria()
-  idCategoria : number
-  usuario : Usuario = new Usuario()
+  listaProdutos: Produto[];
+  listaCategorias: Categoria[];
 
-  idUsuario = environment.id
+  categoria: Categoria = new Categoria();
+  usuario: Usuario = new Usuario();
 
+  idCategoria: number;
+  idProduto: number;
+
+  idUsuario = environment.id;
 
   constructor(
     private produtoService: ProdutoService,
@@ -33,57 +36,107 @@ export class UserProductComponent implements OnInit {
     private route: ActivatedRoute,
     private categoriaService: CategoriaService,
     private authService: AuthService
-
-
-  ) { }
-
+  ) {}
 
   ngOnInit() {
-    this.getAllProdutos()
+    this.findAllProduto();
+    this.findAllCategoria();
+    this.findByIdUsuario();
   }
 
-  getAllProdutos(){
+  findAllProduto() {
     this.produtoService.getAllProduto().subscribe((resp: Produto[]) => {
       this.listaProdutos = resp;
     });
   }
-  findByIdCategoria() {
-    this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria) => {
-      this.categoria = resp;
-    });
+
+  findByIdProduto() {
+    this.produtoService
+      .getByIdProduto(this.idProduto)
+      .subscribe((resp: Produto) => {
+        this.produto = resp;
+      });
   }
-  getAllCategoria() {
+
+  findByIdCategoria() {
+    if (typeof this.categoria == typeof 1) {
+      this.categoriaService
+        .getByIdCategoria(this.idCategoria)
+        .subscribe((resp: Categoria) => {
+          this.categoria = resp;
+        });
+    } else {
+    }
+  }
+
+  findAllCategoria() {
     this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
       this.listaCategorias = resp;
     });
   }
 
-
-  findByIdUsuario(){
+  findByIdUsuario() {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp) => {
-      this.usuario = resp
-    })
+      this.usuario = resp;
+    });
   }
 
+  cadastrar() {
+    this.categoria.id = this.idCategoria;
+    this.produtoAdicionar.categorias = this.categoria;
 
-  cadastrar(){
-    this.produtoService.postProduto(this.produtoAdd).subscribe((resp: Produto) =>{
-      this.produtoAdd = resp
-      alert('Produto cadastrado com sucesso!')
-      //this.findAllProduto()
-      this.produtoAdd = new Produto()
-    })
+    this.usuario.id = this.idUsuario;
+    this.produtoAdicionar.usuarios = this.usuario;
+
+    this.produtoService
+      .postProduto(this.produtoAdicionar)
+      .subscribe((resp: Produto) => {
+        this.produtoAdicionar = resp;
+        this.findByIdProduto;
+        this.produtoAdicionar = new Produto();
+        alert('Produto cadastrado com sucesso!');
+      });
   }
 
-  atualizar(){
-    this.categoria.id = this.idCategoria
-    this.produtoEdit.categorias = this.categoria
-
-    this.produtoService.postProduto(this.produtoEdit).subscribe((resp: Produto) => {
-      this.produtoEdit = resp
-      alert('Produto atualizado com sucesso!')
-    })
+  atualizar() {
+    this.produtoService
+      .putProduto(this.produtoAlterar)
+      .subscribe((resp: Produto) => {
+        this.produtoAlterar = resp;
+        this.produtoAlterar = new Produto();
+        alert('Produto atualizado com sucesso!');
+        this.findByIdUsuario();
+      });
   }
 
+  deletar() {
+    this.produtoService
+    .deleteProduto(this.produtoApagar.id)
+    .subscribe(() => {
+      alert('Produto excluído!');
+      this.findByIdUsuario();
+    });
+  }
 
+  editar(itemId: number) {
+    let result = this.listaProdutos.filter((x) => x.id == itemId);
+    this.produtoAlterar = result[0];
+    this.idCategoria = this.produtoAlterar.categorias.id;
+    // this.idCategoria = itemId.categorias.id;
+    console.log(this.listaProdutos.filter((x) => x.id == itemId));
+  }
+
+  apagar(itemId: number) {
+    console.log(this.idProduto);
+    let result = this.listaProdutos.filter((x) => x.id == itemId);
+    this.produtoApagar = result[0];
+    // this.idCategoria = itemId.categorias.id;
+    console.log(this.listaProdutos.filter((x) => x.id == itemId));
+  }
+
+  verificaImagem(event: Event) {
+    const htmlImagem = event.target as HTMLImageElement;
+    htmlImagem.src =
+      'https://cdn5.vectorstock.com/i/1000x1000/73/49/404-error-page-not-found-miss-paper-with-white-vector-20577349.jpg';
+  }
 }

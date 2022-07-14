@@ -1,4 +1,5 @@
 import { Categoria } from "./Categoria"
+import { Usuario } from "./Usuario"
 
 export class Produto{
   id: number
@@ -8,4 +9,5 @@ export class Produto{
   dataHoraTicket: Date
   foto: string
   categorias: Categoria
+  usuarios: Usuario
 }

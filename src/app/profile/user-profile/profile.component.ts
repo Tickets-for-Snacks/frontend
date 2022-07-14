@@ -26,6 +26,8 @@ export class ProfileComponent implements OnInit {
 
     this.idUser = this.route.snapshot.params['id'];
     this.findByIdUsuario(this.idUser);
+
+
   }
 
   confirmarSenha(event: any) {

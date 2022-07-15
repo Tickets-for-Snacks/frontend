@@ -16,21 +16,23 @@
       </div>
     </div>
 
-    <div *ngFor="let item of listaCategorias">
-      <div class="col-md-12 d-flex justify-content-between mt-3 mb-3">
-        <button id="selected" class="btn btn-secondary rounded-pill pr-5 pl-5 mr-3">{{item.descricaoCategoria}}</button>
-      </div>
+    <div  class="col-md-12 d-flex justify-content-center mt-3 mb-3">
+      <button *ngFor="let item of listaCategorias" id="selected" class="btn btn-secondary rounded-pill pr-5 pl-5 mr-3">{{item.descricaoCategoria}}</button>
     </div>
+
 
     <div class="col-md-12 m-5">
 
       <div class="row">
         <div *ngFor="let number of listaProdutos" class="col-md-3 m-3">
-          <a [routerLink]="['/pag-ticket', number.id]">
+          <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
             <div class="card">
               <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize">
-              <div class="card-body">
-                <h4 class="card-title">{{number.nomeTicket}}</h4>
+              <div class="card-body" id="minSize">
+
+                <h4 *ngIf="number.nomeTicket.length >= 12" class="card-title">{{number.nomeTicket.slice(0,12)}}</h4>
+                <h4 *ngIf="number.nomeTicket.length < 12" class="card-title">{{number.nomeTicket}}</h4>
+
                 <p class="card-text">Preço: R${{number.valorTicket}}</p>
                 <small class="card-text">{{number.descricaoTicket}}</small><br>
                 <small class="card-text">{{number.categorias.descricaoCategoria}}</small>

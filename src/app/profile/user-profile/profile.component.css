@@ -1,0 +1,28 @@
+.backgroundColor{
+  background-color: #7DD36F;
+  height: 272px;
+  width: auto;
+}
+
+.limitSizePhotoProfile{
+  min-height: 350px;
+  min-width: 300px;
+  max-height: 350px;
+  max-width: 300px;
+}
+
+#borderSolid{
+  border: 2px solid rgb(145, 145, 145);
+}
+
+.fa{
+  font-size: 75px;
+}
+
+.paddingTop{
+  padding-top: 150px;
+}
+
+.sizeCon{
+  min-height: 90vh;
+}

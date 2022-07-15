@@ -4,8 +4,13 @@
 }
 
 #imgbackground{
-  background-color: #c4bc9c;
+  background-color: #f4e4b4;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+}
+
+h1{
+  color: #7E0707;
+  font-family: Lilita One;
 }

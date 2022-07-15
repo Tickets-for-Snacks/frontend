@@ -22,3 +22,7 @@
   max-width: 250px;
   min-width: 250px;
 }
+
+.borderSolid{
+  border: 1px solid red;
+}

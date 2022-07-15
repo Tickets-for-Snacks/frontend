@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
-      <h1>Categorias</h1>
+      <h1 class="text-danger">Categorias</h1>
     </div>
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
@@ -17,16 +17,17 @@
     </div>
 
     <div  class="col-md-12 d-flex justify-content-center mt-3 mb-3">
-      <button *ngFor="let item of listaCategorias" id="selected" class="btn btn-secondary rounded-pill pr-5 pl-5 mr-3">{{item.descricaoCategoria}}</button>
+      <button *ngFor="let item of listaCategorias" id="selected" class="btn btn-danger rounded-pill pr-5 pl-5 mr-3">{{item.descricaoCategoria}}</button>
     </div>
 
 
-    <div class="col-md-12 m-5">
+    <div class="col-md-12 m-5 ">
 
       <div class="row">
-        <div *ngFor="let number of listaProdutos" class="col-md-3 m-3">
+        <div *ngFor="let number of listaProdutos" class="col-md-3 mb-3 d-flex align-items-stretch">
+
           <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
-            <div class="card">
+            <div class="card borderSolid">
               <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize">
               <div class="card-body" id="minSize">
 

@@ -1,30 +1,78 @@
-<footer class="page-footer text-center text-white" id="bgFooter">
-  <div class="container pt-4">
-    <section class="mb-4">
+<footer class="page-footer" id="bgFooter">
 
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i
-          class="fa fa-facebook-square" aria-hidden="true"></i></a>
+  <div class="col-md-12 d-flex ml-2 pr-1 justify-content-center" id="pixelsListaDois">
+    <img src="../../assets/img/macanzinha.png" alt="" width="87px" height="88px">
+  </div>
+  <div class="container-fluid">
 
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i
-          class="fa fa-twitter-square" aria-hidden="true"></i></a>
+    <div class="row">
+      <div class="col-md-4" id="pixelsListaUm">
+        <ul class="navbar-nav d-flex mr-auto py-5">
+          <li><i class="fa fa-bars" aria-hidden="true"></i></li>
+          <li><a routerLink="/home">
+              <h3 style="color: #074D27;">Home</h3>
+            </a></li>
+          <li><a routerLink="/product">
+              <h3 style="color: #074D27;">Produtos</h3>
+            </a></li>
+          <li><a routerLink="/aboutUs">
+              <h3 style="color: #074D27;">Sobre Nós</h3>
+            </a></li>
+          <li><a routerLink="/contact">
+              <h3 style="color: #074D27;">Contatos</h3>
+            </a></li>
+          <li><a *ngIf="logado()" [routerLink]="['/profile', id]" >
+              <h3 style="color: #7E0707;">Perfil</h3>
+            </a>
+            <a *ngIf="noLogado()" routerLink="/login">
+              <h3 style="color: #7E0707;">Perfil</h3>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i
-          class="fa fa-google" aria-hidden="true"></i></a>
+      <div class="col-md-4">
+        <ul class="navbar-nav d-flex pt-5 align-items-center" id="ulPaddingTop">
+          <li>
+            <a href="https://github.com/Tickets-for-Snacks">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Tickets-for-Snacks">
+              <h4 style="color: #7E0707;">© 2022 Copyright: Ticket for Snacks</h4>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i
-          class="fa fa-instagram" aria-hidden="true"></i></a>
-
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i
-          class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-
-      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i
-          class="fa fa-github-square" aria-hidden="true"></i></a>
-
-    </section>
+      <div class="col-md-4" id="pixelsListaTres">
+        <ul class="navbar-nav d-flex ml-auto py-5 align-items-end">
+          <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+          <li><a href="https://www.linkedin.com/in/augustocesarsl/">
+              <h3 style="color: #7E0707;">Augusto César</h3>
+            </a></li>
+          <li><a href="https://www.linkedin.com/in/eloisa-pascon-a5b36a19a">
+              <h3 style="color: #7E0707;">Eloisa Pascon</h3>
+            </a></li>
+          <li><a href="https://www.linkedin.com/in/elenilson-sousa-214a97238/
+            ">
+              <h3 style="color: #7E0707;">Elenilson Santos</h3>
+            </a></li>
+          <li><a href="https://www.linkedin.com/in/luiza-souza-06b1b0202/">
+              <h3 style="color: #7E0707;">Luiza Souza</h3>
+            </a></li>
+          <li><a href="https://www.linkedin.com/in/vitor-aguilar/">
+              <h3 style="color: #7E0707;">Vitor Hugo</h3>
+            </a></li>
+          <li><a href="https://www.linkedin.com/in/vitoria-rodrigues-ux-ui-designer-jr-front-end-jr/">
+              <h3 style="color: #7E0707;">Vitória Rodrigues</h3>
+            </a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2022 Copyright:
-    <a class="text-dark" href="https://github.com/Tickets-for-Snacks">Ticket for Snacks</a>
-  </div>
+
+
 </footer>

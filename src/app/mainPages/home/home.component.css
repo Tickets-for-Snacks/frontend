@@ -20,3 +20,21 @@
 .carousel-indicators .active {
   background-color: #fc4444;
 }
+
+#bg {
+  background-color : #F5E1B7;
+}
+
+.pb-5{
+  padding-top: 50px ;
+  padding-left: 0%;
+  padding-right: 0%;
+  }
+.background-img
+{
+  background-image:url("https://cdn.discordapp.com/attachments/976239165073141780/997122589589782549/unknown.png");
+}
+#vdc{
+  margin-left:680px;
+}
+

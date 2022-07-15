@@ -42,3 +42,17 @@ ul.social-network li {
 #bgFooter{
   background-color:#f4e4b4 ;
 }
+
+#hoverzinho:hover{
+  color: purple;
+}
+
+#fs-18{
+  font-size: 18px;
+  font-family: monospace;
+}
+
+#fs-10{
+  font-size: 10px;
+  font-family: monospace;
+}

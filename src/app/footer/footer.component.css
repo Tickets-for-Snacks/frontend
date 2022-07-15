@@ -9,36 +9,34 @@ ul.social-network li {
   padding: 5px;
 }
 
-.fa {
-  font-size: 35pt;
+.fa-github {
+  font-size: 45pt;
   color: black;
-  padding: 10px;
+  margin-bottom: 50px;
 }
 
-.fa-facebook-square:hover {
-  color: blue;
+.fa{
+  width: 32px;
+  height: 32px;
 }
 
-.fa-instagram:hover {
-  color: #c13584;
-}
-
-.fa-linkedin-square:hover {
-  color: blue;
-}
-
-.fa-twitter-square:hover {
-  color: blue;
-}
-
-.fa-google:hover {
-  color: red;
-}
-
-.fa-github-square:hover {
-  color: black;
+#ulPaddingTop{
+  padding-top: 220px !important;
 }
 
 #bgFooter{
   background-color:#f4e4b4 ;
+}
+
+#pixelsListaUm{
+  left: 45px;
+}
+
+#pixelsListaDois{
+  top: 50px;
+  background-color:#f4e4b4
+}
+
+#pixelsListaTres{
+  right: 45px;
 }

@@ -30,8 +30,10 @@
             <div class="card">
               <img class="img-fluid" alt="100%x280" src="{{item.foto}}" (error)="verificaImagem($event)" id="minSize">
               <div class="card-body" id="minSize">
+
                 <h4 *ngIf="item.nomeTicket.length >= 12" class="card-title">{{item.nomeTicket.slice(0,12)}}...</h4>
                 <h4 *ngIf="item.nomeTicket.length < 12" class="card-title">{{item.nomeTicket}}</h4>
+
                 <p class="card-text">Preço: R${{item.valorTicket}}</p>
                 <small *ngIf="item.descricaoTicket.length >= 20"
                   class="card-text">{{item.descricaoTicket.slice(0,20)}}...</small><br>

@@ -1,61 +1,108 @@
-<div class="container mb-5 pt-5">
-  
+<div class="container-fluid pt-5 backgroundColor">
+
   <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-center">Atualizar usuário</h1>
+
+
+    <div class="col-md-12 d-flex justify-content-center mt-4">
+      <div class="row">
+        <img src="{{usuario.foto}}" alt="" class="limitSizePhotoProfile rounded-circle">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pb-5 paddingTop ">
+
+  <div class="row">
+    <div class="col-md-12 mb-5 pb-4 mt-5">
+      <h2 class="text-center">{{usuario.nome}}</h2>
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-10">
+  <div class="row mb-5">
 
+    <div class="col rounded text-center pt-5 mr-5 ml-5 mt-4" id="borderSolid">
+      <a class="text-decoration-none text-primary" routerLink="/user-product"><i class="fa fa-ticket mb-4" aria-hidden="true"></i>
+        <h3 class="mb-4">Seus Produtos</h3>
+      </a>
+    </div>
 
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input [(ngModel)]="usuario.nome" class="form-control" type="text" name="nome" id="nome" placeholder="Seu nome">
+    <div class="col rounded text-center pt-5 mr-5 ml-5 mt-4" id="borderSolid">
+      <a class="text-decoration-none text-primary" routerLink="/categoria-edit"><i class="fa fa-ticket mb-4" aria-hidden="true"></i>
+        <h3 class="mb-4">Categorias</h3>
+      </a>
+    </div>
+
+    <div class="col rounded text-center pt-5 mr-5 ml-5 mt-4" id="borderSolid">
+      <a class="text-decoration-none text-primary" data-toggle="modal" data-target="#editor"><i class="fa fa-ticket mb-4" aria-hidden="true"></i>
+        <h3 class="mb-4">Editar</h3>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Editar -->
+<div class="modal fade" id="editor" tabindex="-1" role="dialog" aria-labelledby="editorTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editorLongTitle">Editar produto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
-      <div class="form-group">
-        <label for="usuario">Usuário</label>
-        <input [(ngModel)]="usuario.usuario" class="form-control" type="text" name="usuario" id="usuario"
-          placeholder="Seu usuário">
-      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input [(ngModel)]="usuario.nome" class="form-control" type="text" name="nome" id="nome"
+            placeholder="Seu nome">
+        </div>
 
-      <div class="form-group">
-        <label for="foto">Link da foto</label>
-        <input [(ngModel)]="usuario.foto" class="form-control" type="text" name="foto" id="foto"
-          placeholder="Link da sua foto">
-      </div>
+        <div class="form-group">
+          <label for="usuario">Usuário</label>
+          <input [(ngModel)]="usuario.usuario" class="form-control" type="text" name="usuario" id="usuario"
+            placeholder="Seu usuário">
+        </div>
 
-      <div class="form-group">
-        <label for="senha">Senha</label>
-        <input (input)="confirmarSenha($event)" class="form-control" type="password" name="senha" id="senha"
-          placeholder="Sua senha">
-      </div>
+        <div class="form-group">
+          <label for="foto">Link da foto</label>
+          <input [(ngModel)]="usuario.foto" class="form-control" type="text" name="foto" id="foto"
+            placeholder="Link da sua foto">
+        </div>
 
-      <div class="form-group">
-        <label for="confirmSenha">Confirmar senha</label>
-        <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="confirmSenha" id="confirmSenha"
-          placeholder="Confirme sua senha">
-      </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input (input)="confirmarSenha($event)" class="form-control" type="password" name="senha" id="senha"
+            placeholder="Sua senha">
+        </div>
 
-      <div class="form-group">
-        <label for="tipo">Tipo de Usuário</label>
-        <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
-          <option>Selecione um tipo de usuário</option>
-          <option value="normal">Cliente</option>
-          <option value="empresa">Empresa</option>
-          <option value="pmcomunidade">Pequena/Média comunidade de fazenda</option>
-          <option value="ong">ONG</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label for="confirmSenha">Confirmar senha</label>
+          <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="confirmSenha" id="confirmSenha"
+            placeholder="Confirme sua senha">
+        </div>
 
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-danger mr-4" routerLink="/home">Cancelar</button>
-        <button type="submit" class="btn btn-success" (click)='atualizar()'>Atualizar</button>
-      </div>
+        <div class="form-group">
+          <label for="tipo">Tipo de Usuário</label>
+          <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
+            <option>Selecione um tipo de usuário</option>
+            <option value="normal">Cliente</option>
+            <option value="empresa">Empresa</option>
+            <option value="pmcomunidade">Pequena/Média comunidade de fazenda</option>
+            <option value="ong">ONG</option>
+            <option value="ong">Administrador</option>
+          </select>
+          <small>Categoria anterior: {{usuario.tipo}}</small>
+        </div>
 
+        <div class="d-flex justify-content-center mb-5 mt-5">
+          <button type="submit" class="btn btn-danger mr-4" data-dismiss="modal" routerLink="/home">Cancelar</button>
+          <button type="submit" class="btn btn-success" data-dismiss="modal" (click)='atualizar()'>Atualizar</button>
+        </div>
+
+      </div>
     </div>
   </div>
-
 </div>

@@ -42,6 +42,8 @@ export class UserProductComponent implements OnInit {
     this.findAllProduto();
     this.findAllCategoria();
     this.findByIdUsuario();
+
+    
   }
 
   findAllProduto() {

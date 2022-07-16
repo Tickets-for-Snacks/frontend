@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
         environment.nome = '';
         environment.foto = '';
         environment.id = 0;
-        this.router.navigate(['/home']);
+        this.router.navigate(['/login']);
       });
     }
   }
@@ -60,5 +60,11 @@ export class ProfileComponent implements OnInit {
     this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
       this.usuario = resp;
     });
+  }
+
+  verificaImagem(event: Event) {
+    const htmlImagem = event.target as HTMLImageElement;
+    htmlImagem.src =
+      'https://i.imgur.com/UB7iHgs.png';
   }
 }

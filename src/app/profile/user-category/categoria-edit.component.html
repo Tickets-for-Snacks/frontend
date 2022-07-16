@@ -33,7 +33,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Icone</th>
-            <th scope="col">Descrição</th>
+            <th scope="col">Nome</th>
             <th scope="col">Modificações</th>
           </tr>
         </thead>
@@ -75,13 +75,24 @@
         </div>
         <div class="form-group">
           <label for="">Icone:</label>
-          <input [(ngModel)]='categoriaEdit.iconeCategoria' type="text" id="icone" class="rounded-pill form-control">
+          <input [(ngModel)]='categoriaEdit.iconeCategoria' #iconeCategoriaEdit="ngModel" type="text" required maxlength="10"
+          placeholder="Digite ou aperte Ctrl + '.' (Ponto final)" class="rounded-pill form-control">
+
+          <h6 *ngIf="iconeCategoriaEdit.errors?.['required']" class="font-weight-bold">Icone não pode ser vazio.</h6>
+
         </div>
+
         <div class="form-group">
           <label for="">Descrição:</label>
-          <input [(ngModel)]='categoriaEdit.descricaoCategoria' type="textarea" id="descricao"
-            class="rounded-pill form-control">
+          <input [(ngModel)]='categoriaEdit.descricaoCategoria' type="textarea" #descricaoCategoriaEdit="ngModel" type="text" required minlength="10"
+          class="rounded-pill form-control">
+
+          <h6 *ngIf="descricaoCategoriaEdit.errors?.['required']" class="font-weight-bold">Descrição não pode ser vazio.</h6>
+
+          <h6 *ngIf="descricaoCategoriaEdit.errors?.['minlength']" class="font-weight-bold">Descrição precisa ter mais de 10
+            caracteres.</h6>
         </div>
+
       </div>
 
       <div class="modal-footer">
@@ -97,31 +108,47 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="adicionarLongTitle">Adicionar categoria</h5>
+        <h5 class="modal-title" id="adicionarLongTitle">Adicionar Categoria</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
       <div class="modal-body">
+
         <div class="form-group">
-          <label for="">Icone:</label>
-          <input [(ngModel)]='categoriaAdd.iconeCategoria' type="text" id="icone" class="rounded-pill form-control">
+          <label for="iconeCategoria">Icone:</label>
+          <input [(ngModel)]='categoriaAdd.iconeCategoria' #iconeCategoriaAdd="ngModel" type="text" required maxlength="10"
+            placeholder="Digite ou aperte Ctrl + '.' (Ponto final)" class="rounded-pill form-control">
+
+          <h6 *ngIf="iconeCategoriaAdd.errors?.['required']" class="font-weight-bold">Icone não pode ser vazio.</h6>
+
         </div>
+
         <div class="form-group">
           <label for="">Descrição:</label>
-          <input [(ngModel)]='categoriaAdd.descricaoCategoria' type="textarea" id="descricao"
+          <input [(ngModel)]='categoriaAdd.descricaoCategoria' type="textarea" #descricaoCategoriaAdd="ngModel" type="text" required minlength="10"
             class="rounded-pill form-control">
+
+            <h6 *ngIf="descricaoCategoriaAdd.errors?.['required']" class="font-weight-bold">Descrição não pode ser vazio.</h6>
+
+            <h6 *ngIf="descricaoCategoriaAdd.errors?.['minlength']" class="font-weight-bold">Descrição precisa ter mais de 10
+              caracteres.</h6>
         </div>
+
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="cadastrar()">Save changes</button>
+        <button type="button" class="btn btn-success" (click)="cadastrar()">Cadastrar
+          Categoria</button>
       </div>
+
     </div>
   </div>
 </div>
+
+
 
 <!-- Modal Apagar -->
 <div class="modal fade" id="apagar" tabindex="-1" role="dialog" aria-labelledby="apagarTitle" aria-hidden="true">

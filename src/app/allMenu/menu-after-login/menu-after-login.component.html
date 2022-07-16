@@ -6,6 +6,7 @@
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
       <a class="nav-link pr-4" id="hoverzinho" href="#" routerLink="/home" style="color: #074D27;">Home</a>
@@ -21,10 +22,10 @@
     </li>
     <li class="navbar-nav nav-item mr-4">
       <a [routerLink]="['/profile', id]" class="nav-link" id="hoverzinho" style="color: #074D27;">Perfil</a>
-    </li>  
+    </li>
   </ul>
 
-  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
     <li class="navbar-nav nav-item mr-4 ">
       <a class="nav-link" id="hoverzinho" href="#" routerLink="/login" (click)="logoff()" style="color: #5A5A5A;">Sair</a>
     </li>

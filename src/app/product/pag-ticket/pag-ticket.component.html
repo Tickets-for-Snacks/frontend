@@ -4,11 +4,30 @@
     <div class="col-md-12">
       <div class="row">
 
-        <div class="col-md-6">
-          <img src="{{produto.foto}}" alt="" class="minSize" (error)="verificaImagem($event)">
+        <div class="col-md-5">
+
+          <div class="row ">
+            <img src="{{produto.foto}}" alt="" class="minSize" (error)="verificaImagem($event)">
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-center my-5">
+              <h2 class="font-weight-bold">{{produto.nomeTicket}}</h2>
+            </div>
+
+
+            <div class="col-md-12">
+              <h6>{{produto.descricaoTicket}}</h6>
+            </div>
+          </div>
+
+
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-2 ml-5"></div>
+
+        <!--
+        <div class="col-md-1 ">
           <div class="linha-vertical mr-5"></div>
         </div>
 
@@ -16,26 +35,61 @@
           <h2 class="font-weight-bold">Categoria: {{produto.categorias.descricaoCategoria}}</h2>
           <h3 class="font-weight-bold">{{produto.nomeTicket}}</h3>
           <h3>Data e Hora do Ticket: {{produto.dataHoraTicket}}</h3>
-          <h3>Quantidade de Tickets: <input type="number" id="valorT" class="w-25 rounded" placeholder="1"></h3>
           <h3>Valor total do Ticket: R${{produto.valorTicket}}</h3>
 
-          <!--Não fiz o click pelo fato de não ter o modal de finalização-->
+          Não fiz o click pelo fato de não ter o modal de finalização
           <button class="btn btn-success pr-5 pl-5 mt-5">Comprar</button>
         </div>
+      -->
+
+        <div class="col-md-4 text-center pt-5 mt-5">
+          <h2 class="font-weight-bold mt-5">Categoria: {{produto.categorias.descricaoCategoria}}</h2>
+          <h3>Data do Ticket: {{produto.dataHoraTicket}}</h3>
+          <h3 class="mb-5">Valor do Ticket: R${{produto.valorTicket}}</h3>
+
+          <!--Não fiz o click pelo fato de não ter o modal de finalização-->
+          <button class="btn btn-success pr-5 pl-5 mt-5 rounded-pill" data-toggle="modal" data-target="#comprar" >Comprar</button>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <div class="row mt-5">
+</div>
 
-    <div class="col-md-12 text-center mb-5">
-      <h2 class="font-weight-bold">Descrição do Ticket</h2>
+<!-- Modal Comprar -->
+<div class="modal fade" id="comprar" tabindex="-1" role="dialog" aria-labelledby="adicionarTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adicionarLongTitle">Compra de Ticket</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <h1 class="mb-3 text-center mb-4">Ticket</h1>
+        </div>
+        <div class="form-group">
+          <label for=""><h2>Ticket: {{produto.nomeTicket}}</h2></label>
+        </div>
+        <div class="form-group">
+          <label for=""><h3>R$ {{produto.valorTicket}} reais</h3> </label>
+        </div>
+        <div class="form-group">
+          <label for=""><h3>Data do Ticket: {{produto.dataHoraTicket}}</h3></label>
+        </div>
+        <div class="form-group">
+          <label for=""><h3>Categoria do Ticket: {{produto.categorias?.descricaoCategoria}}</h3></label>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-pill px-4" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-success rounded-pill px-4" data-dismiss="modal" (click)='comprar()'>Comprar Ticket</button>
+      </div>
     </div>
-
-    <div class="col-md-12 borderSolid rounded pb-5 mb-5">
-      <h3>{{produto.descricaoTicket}}</h3>
-    </div>
-
   </div>
-
 </div>

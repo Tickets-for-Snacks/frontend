@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="col-md-12 d-flex justify-content-center">
-      <i class="fa fa-ticket fs-100" aria-hidden="true"></i>
+      <img src="https://i.imgur.com/VRExaDX.png" alt="" width="100px" height="100px">
     </div>
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
@@ -24,31 +24,30 @@
     <div class="col-md-12 m-5">
 
       <div class="row">
-        <div *ngFor="let item of usuario.produtos " class="col-md-3 mb-3">
+        <div *ngFor="let item of usuario.produtos " class="col-md-3 mb-3 d-flex align-items-stretch">
 
-          <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', item.id]">
             <div class="card">
               <img class="img-fluid" alt="100%x280" src="{{item.foto}}" (error)="verificaImagem($event)" id="minSize">
-              <div class="card-body" id="minSize">
+              <div class="card-body" >
 
-                <h4 *ngIf="item.nomeTicket.length >= 12" class="card-title">{{item.nomeTicket.slice(0,12)}}...</h4>
-                <h4 *ngIf="item.nomeTicket.length < 12" class="card-title">{{item.nomeTicket}}</h4>
+                <a [routerLink]="['/pag-ticket', item.id]"><h4 *ngIf="item.nomeTicket.length >= 12" class="card-title">{{item.nomeTicket.slice(0,12)}}...</h4>
+                <h4 *ngIf="item.nomeTicket.length < 12" class="card-title">{{item.nomeTicket}}</h4></a>
 
                 <p class="card-text">Preço: R${{item.valorTicket}}</p>
                 <small *ngIf="item.descricaoTicket.length >= 20"
                   class="card-text">{{item.descricaoTicket.slice(0,20)}}...</small><br>
                 <small *ngIf="item.descricaoTicket.length < 20" class="card-text">{{item.descricaoTicket}}</small><br>
                 <small class="card-text">{{item.categorias.descricaoCategoria}}</small>
+                <div class="col d-flex justify-content-center mt-4">
+                  <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3" data-toggle="modal" data-target="#editor"
+                    (click)="editar(item.id)">Editar</button>
+                  <button class="btn btn-danger rounded-pill pr-3 pl-3" data-toggle="modal" data-target="#apagar"
+                    (click)="apagar(item.id)">Apagar</button>
+                </div>
 
               </div>
             </div>
-          </a>
-          <div class="col d-flex justify-content-center mt-4">
-            <button class="btn btn-success mr-3 rounded-pill pr-3 pl-3" data-toggle="modal" data-target="#editor"
-              (click)="editar(item.id)">Editar</button>
-            <button class="btn btn-danger rounded-pill pr-3 pl-3" data-toggle="modal" data-target="#apagar"
-              (click)="apagar(item.id)">Apagar</button>
-          </div>
+
 
         </div>
       </div>
@@ -96,25 +95,45 @@
         </div>
         <div class="form-group">
           <label for="">Nome do Ticket:</label>
-          <input [(ngModel)]='produtoAdicionar.nomeTicket' type="text" id="nomeT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.nomeTicket' #nomeProdutoAdd="ngModel" type="text" required maxlength="50"
+          placeholder="Digite o nome do Ticket" class="rounded-pill form-control">
+
+          <h6 *ngIf="nomeProdutoAdd.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
         </div>
+
         <div class="form-group">
           <label for="">Valor do Ticket:</label>
-          <input [(ngModel)]='produtoAdicionar.valorTicket' type="number" id="valorT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.valorTicket' #valorProdutoAdd="ngModel" type="number" required placeholder="Digite o valor do Ticket" class="rounded-pill form-control">
+
+          <h6 *ngIf="valorProdutoAdd.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
+          <h6>Valor máximo de R$9999.99</h6>
+
         </div>
         <div class="form-group">
           <label for="">Descrição do Ticket:</label>
-          <input [(ngModel)]='produtoAdicionar.descricaoTicket' type="textarea" id="descricaoT"
+          <input [(ngModel)]='produtoAdicionar.descricaoTicket' #descricaoProdutoAdd="ngModel" type="textarea" required maxlength="1000"
+          placeholder="Digite o nome do Ticket" class="rounded-pill form-control"
             class="rounded-pill form-control">
+
+            <h6 *ngIf="descricaoProdutoAdd.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
+
         </div>
+
         <div class="form-group">
           <label for="">Imagem do Ticket:</label>
-          <input [(ngModel)]='produtoAdicionar.foto' type="text" id="imagemT" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.foto' type="text" id="imagemT" placeholder="Link da imagem ou deixe vazio" class="rounded-pill form-control">
+
+
         </div>
         <div class="form-group">
           <label for="">Data e hora do Ticket:</label>
-          <input [(ngModel)]='produtoAdicionar.dataHoraTicket' type="date" id="dataHoraT"
-            class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAdicionar.dataHoraTicket' #dataProdutoAdd="ngModel" required type="date" id="dataHoraT" class="rounded-pill form-control">
+
+            <h6 *ngIf="dataProdutoAdd.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
         </div>
         <div class="form-group">
           <label for="">Categoria do Ticket:</label>
@@ -151,15 +170,30 @@
         </div>
         <div class="form-group">
           <label for="">Nome do Ticket:</label>
-          <input [(ngModel)]='produtoAlterar.nomeTicket' type="text" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.nomeTicket' #nomeProdutoAlterar="ngModel" type="text" required maxlength="50"
+          placeholder="Digite o nome do Ticket" class="rounded-pill form-control">
+
+          <h6 *ngIf="nomeProdutoAlterar.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
         </div>
         <div class="form-group">
           <label for="">Valor do Ticket:</label>
-          <input [(ngModel)]='produtoAlterar.valorTicket' type="number" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.valorTicket' #valorProdutoAlterar="ngModel" type="number" required placeholder="Digite o valor do Ticket" class="rounded-pill form-control">
+
+          <h6 *ngIf="valorProdutoAlterar.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
+          <h6>Valor máximo de R$9999.99</h6>
+
         </div>
         <div class="form-group">
           <label for="">Descrição do Ticket:</label>
-          <input [(ngModel)]='produtoAlterar.descricaoTicket' type="textarea" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.descricaoTicket' #descricaoProdutoAlterar="ngModel" type="textarea" required maxlength="1000"
+          placeholder="Digite o nome do Ticket" class="rounded-pill form-control"
+            class="rounded-pill form-control">
+
+            <h6 *ngIf="descricaoProdutoAlterar.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
+
         </div>
         <div class="form-group">
           <label for="">Imagem do Ticket:</label>
@@ -167,7 +201,10 @@
         </div>
         <div class="form-group">
           <label for="">Data e hora do Ticket:</label>
-          <input [(ngModel)]='produtoAlterar.dataHoraTicket' type="date" class="rounded-pill form-control">
+          <input [(ngModel)]='produtoAlterar.dataHoraTicket' #dataProdutoAlterar="ngModel" required type="date" id="dataHoraT" class="rounded-pill form-control">
+
+          <h6 *ngIf="dataProdutoAlterar.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
         </div>
         <div class="form-group">
           <label for="">Selecione uma das categorias abaixo para alterar.</label>

@@ -97,6 +97,12 @@ export class UserProductComponent implements OnInit {
         this.findByIdProduto;
         this.produtoAdicionar = new Produto();
         alert('Produto cadastrado com sucesso!');
+      },
+      (erro) => {
+        if (erro.status == 400) {
+          alert('Campo não foi preenchido corretamente')
+          this.findByIdProduto();
+        }
       });
   }
 
@@ -108,6 +114,12 @@ export class UserProductComponent implements OnInit {
         this.produtoAlterar = new Produto();
         alert('Produto atualizado com sucesso!');
         this.findByIdUsuario();
+      },
+      (erro) => {
+        if (erro.status == 400) {
+          alert('Campo não foi preenchido corretamente')
+          this.findByIdUsuario();
+        }
       });
   }
 

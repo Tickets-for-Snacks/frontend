@@ -5,7 +5,7 @@
 
     <div class="col-md-12 d-flex justify-content-center mt-4">
       <div class="row">
-        <img src="{{usuario.foto}}" alt="" class="limitSizePhotoProfile rounded-circle">
+        <img src="{{usuario.foto}}" (error)="verificaImagem($event)" alt="" class="limitSizePhotoProfile rounded-circle">
       </div>
     </div>
   </div>
@@ -22,19 +22,19 @@
   <div class="row mb-5">
 
     <div class="col rounded text-center pt-5 mr-5 ml-5 mt-4" id="borderSolid">
-      <a class="text-decoration-none" routerLink="/user-product"><i class="fa fa-ticket mb-4" aria-hidden="true"></i>
+      <a class="text-decoration-none" routerLink="/user-product"><img src="https://i.imgur.com/VRExaDX.png" alt="" width="100px" height="100px" >
         <h3 class="mb-4 textCor">Seus Produtos</h3>
       </a>
     </div>
 
     <div class="col rounded text-center pt-5 mr-5 ml-5 mt-4" id="borderSolid">
-      <a class="text-decoration-none" routerLink="/categoria-edit"><i class="fa fa-ticket mb-4" aria-hidden="true"></i>
+      <a class="text-decoration-none" routerLink="/categoria-edit"><img src="https://i.imgur.com/BPpwnQo.png" alt="" width="100px" height="100px">
         <h3 class="mb-4 textCor">Categorias</h3>
       </a>
     </div>
 
     <div class="col rounded text-center pt-5 mr-5 ml-5 mt-4" id="borderSolid">
-      <a class="text-decoration-none" data-toggle="modal" data-target="#editor"><i class="fa fa-ticket mb-4" aria-hidden="true"></i>
+      <a class="text-decoration-none" data-toggle="modal" data-target="#editor"><img src="https://i.imgur.com/dFI6mvF.png" alt="" width="100px" height="100px">
         <h3 class="mb-4 textCor">Editar</h3>
       </a>
     </div>
@@ -88,11 +88,11 @@
           <label for="tipo">Tipo de Usuário</label>
           <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
             <option>Selecione um tipo de usuário</option>
-            <option value="normal">Cliente</option>
-            <option value="empresa">Empresa</option>
-            <option value="pmcomunidade">Pequena/Média comunidade de fazenda</option>
-            <option value="ong">ONG</option>
-            <option value="ong">Administrador</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Empresa">Empresa</option>
+            <option value="Pequena/Média comunidade de fazenda">Pequena/Média comunidade de fazenda</option>
+            <option value="ONG">ONG</option>
+            <option value="Administrador">Administrador</option>
           </select>
           <small>Categoria anterior: {{usuario.tipo}}</small>
         </div>

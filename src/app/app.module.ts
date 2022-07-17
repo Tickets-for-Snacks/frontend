@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/user-profile/profile.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { PagTicketComponent } from './product/pag-ticket/pag-ticket.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { PagTicketComponent } from './product/pag-ticket/pag-ticket.component';
     UserProductComponent,
     PagTicketComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, OrderModule],
   providers: [
     {
       provide: LocationStrategy,

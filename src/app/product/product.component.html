@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="col-md-12 d-flex justify-content-center">
-      <i class="fa fa-ticket fs-100" aria-hidden="true"></i>
+      <img src="https://i.imgur.com/BPpwnQo.png" alt="" width="100px" height="100px">
     </div>
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
@@ -26,19 +26,19 @@
     <div class="col-md-12">
 
       <div class="row">
-        <div *ngFor="let number of listaProdutos" class="col-md-3 mb-3 d-flex align-items-stretch">
+        <div *ngFor="let number of listaProdutos | orderBy : key : reverse" class="col-md-3 mb-3 d-flex align-items-stretch">
 
           <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
             <div class="card borderSolid">
-              <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize">
+              <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize" width="250px" height="250px">
               <div class="card-body" id="minSize">
 
-                <h4 *ngIf="number.nomeTicket.length >= 12" class="card-title">{{number.nomeTicket.slice(0,12)}}</h4>
-                <h4 *ngIf="number.nomeTicket.length < 12" class="card-title">{{number.nomeTicket}}</h4>
+                <h4 *ngIf="number.nomeTicket.length >= 15" class="card-title">{{number.nomeTicket.slice(0,15)}}...</h4>
+                <h4 *ngIf="number.nomeTicket.length < 15" class="card-title">{{number.nomeTicket}}</h4>
 
                 <p class="card-text">Preço: R${{number.valorTicket}}</p>
-                <small class="card-text">{{number.descricaoTicket}}</small><br>
-                <small class="card-text">{{number.categorias.descricaoCategoria}}</small>
+                <small *ngIf="number.descricaoTicket.length >= 20 " class="card-text">{{number.descricaoTicket.slice(0,20)}}...</small><br>
+                <small *ngIf="number.descricaoTicket.length < 20 " class="card-text">{{number.categorias.descricaoCategoria}}</small>
               </div>
             </div>
           </a>

@@ -42,6 +42,9 @@ export class ProductComponent implements OnInit {
     this.getAllProdutos()
   }
 
+  key = 'data'
+  reverse = true
+
   getAllProdutos(){
     this.produtoService.getAllProduto().subscribe((resp: Produto[]) => {
       this.listaProdutos = resp;

@@ -7,16 +7,16 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <img class="w-100" src="https://i.imgur.com/cBtcRTQ.jpg" alt="First slide">
+      <img class="w-100" src="https://i.imgur.com/cBtcRTQ.jpg" alt="First slide" />
     </div>
     <div class="carousel-item">
-      <img class=" w-100" src="https://i.imgur.com/L2qOyFE.png" alt="Second slide">
+      <img class="w-100" src="https://i.imgur.com/L2qOyFE.png" alt="Second slide" />
     </div>
     <div class="carousel-item">
-      <img class="w-100" src="https://i.imgur.com/sEI571c.png" alt="Third slide">
+      <img class="w-100" src="https://i.imgur.com/sEI571c.png" alt="Third slide" />
     </div>
     <div class="carousel-item">
-      <img class="w-100" src="https://i.imgur.com/XdDbv1A.jpg" alt="Fourth slide">
+      <img class="w-100" src="https://i.imgur.com/XdDbv1A.jpg" alt="Fourth slide" />
     </div>
   </div>
   <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
@@ -33,7 +33,11 @@
   <div class="row">
     <div class="col-12">
       <div>
-        <hr style="border-width: 3px; background-color: rgb(88, 88, 88); border-radius: 2px;">
+        <hr style="
+            border-width: 3px;
+            background-color: rgb(88, 88, 88);
+            border-radius: 2px;
+          " />
       </div>
     </div>
   </div>
@@ -42,27 +46,34 @@
 <div class="container mt-4 mb-4">
   <div class="row pb-3">
     <div class="col-md-12 d-flex justify-content-center">
-      <img src="https://i.imgur.com/DSdj1ZK.png" alt="">
+      <img src="https://i.imgur.com/DSdj1ZK.png" alt="" />
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1 class="text-center">Como ajudamos?</h1><br>
-      <p class="text-center">O projeto Ticket for Snacks te faz protagonista nessa causa! A partir da compra de um
-        ingresso você ganha um desconto com a contribuição de um alimento perecível. Desta maneira, pode divulgar,
-        procurar seus eventos e aproveitar para ajudar ao mundo ao mesmo tempo!</p>
+      <h1 class="text-center">Como ajudamos?</h1>
+      <br />
+      <p class="text-center">
+        O projeto Ticket for Snacks te faz protagonista nessa causa! A partir da
+        compra de um ingresso você ganha um desconto com a contribuição de um
+        alimento perecível. Desta maneira, pode divulgar, procurar seus eventos
+        e aproveitar para ajudar ao mundo ao mesmo tempo!
+      </p>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <button *ngIf="logado()" type="submit" class="btn btn-danger mr-4 rounded-pill" routerLink="/user-product">Crie
-        seu evento</button>
-      <button *ngIf="noLogado()" type="submit" class="btn btn-danger mr-4 rounded-pill" routerLink="/login">Crie seu
-        evento</button>
-      <button type="submit" class="btn btn-outline-danger text-center rounded-pill" routerLink="/product">Nossos
-        tickets</button>
+      <button *ngIf="logado()" type="submit" class="btn btn-danger mr-4 rounded-pill" routerLink="/user-product">
+        Crie seu evento
+      </button>
+      <button *ngIf="noLogado()" type="submit" class="btn btn-danger mr-4 rounded-pill" routerLink="/login">
+        Crie seu evento
+      </button>
+      <button type="submit" class="btn btn-outline-danger text-center rounded-pill" routerLink="/product">
+        Nossos tickets
+      </button>
     </div>
   </div>
 </div>
@@ -70,14 +81,13 @@
 <div class="container-fluid mt-5 mb-4">
   <div class="row">
     <div class="col-md-12">
-      <img class="w-100 h-100" src="https://i.imgur.com/XdDbv1A.jpg" alt="">
-
+      <img class="w-100 h-100" src="https://i.imgur.com/XdDbv1A.jpg" alt="" />
     </div>
   </div>
 
   <div class="row mt-5">
     <div class="col-md-12 text-center">
-      <img src="https://i.imgur.com/zHEhg5C.png" alt="">
+      <img src="https://i.imgur.com/zHEhg5C.png" alt="" />
       <h1 class="text-center mt-4">Os eventos que ajudam vidas!</h1>
     </div>
   </div>
@@ -91,70 +101,98 @@
           <i class="fa fa-arrow-left"></i></a>
       </div>
       <div class="col-6 text-right">
-
-
-        <a class="btn btn-danger mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+        <a class="btn btn-danger mb-3" href="#carouselExampleIndicators2" role="button" data-slide="next">
           <i class="fa fa-arrow-right"></i>
         </a>
       </div>
 
       <div class="col-12">
-
         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row">
+                <div *ngFor="let number of listaProdutos | slice: 0:3"  class="col-md-4 mb-3" >
+                  <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
+                    <div class="card">
+                      <img class="img-fluid" alt="100%x280" routerLink="/product" src="{{ number.foto }}"
+                        id="minSize" />
+                      <div class="card-body" id="minSize">
+                        <h4 *ngIf="number.nomeTicket.length >= 15" class="card-title">
+                          {{ number.nomeTicket.slice(0, 15) }}...
+                        </h4>
+                        <h4 *ngIf="number.nomeTicket.length < 15" class="card-title">
+                          {{ number.nomeTicket }}
+                        </h4>
 
-                <div *ngFor="let number of [0,1,2]" class="col-md-4 mb-3">
-                  <div class="card">
-                    <!--Colocar o RouterLink para ser linkavel-->
-                    <img class="img-fluid" alt="100%x280" routerLink="/product"
-                      src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
-                    <div class="card-body">
-                      <h4 class="card-title">Variavel Titulo Ticket.</h4>
-                      <p class="card-text">Variavel Descrição Ticket.</p>
-                      <p class="card-text">Variavel Data Ticket.</p>
+                        <p class="card-text">
+                          Preço: R${{ number.valorTicket }}
+                        </p>
+                        <small *ngIf="number.descricaoTicket.length >= 20" class="card-text">{{
+                          number.descricaoTicket.slice(0, 20) }}...</small><br />
+                        <small *ngIf="number.descricaoTicket.length < 20" class="card-text">{{
+                          number.categorias.descricaoCategoria }}</small>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
 
             <div class="carousel-item">
               <div class="row">
+                <div *ngFor="let number of listaProdutos | slice: 4:6" class="col-md-4 mb-3">
+                  <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
+                    <div class="card">
+                      <img class="img-fluid" alt="100%x280" routerLink="/product" src="{{ number.foto }}"
+                        id="minSize" />
+                      <div class="card-body" id="minSize">
+                        <h4 *ngIf="number.nomeTicket.length >= 15" class="card-title">
+                          {{ number.nomeTicket.slice(0, 15) }}...
+                        </h4>
+                        <h4 *ngIf="number.nomeTicket.length < 15" class="card-title">
+                          {{ number.nomeTicket }}
+                        </h4>
 
-                <div *ngFor="let number of [0,1,2]" class="col-md-4 mb-3">
-                  <div class="card">
-                    <!--Colocar o RouterLink para ser linkavel-->
-                    <img class="img-fluid" alt="100%x280" routerLink="/product"
-                      src="https://images.unsplash.com/photo-1532771098148-525cefe10c23?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3f317c1f7a16116dec454fbc267dd8e4">
-                    <div class="card-body">
-                      <h4 class="card-title">Variavel Titulo Ticket.</h4>
-                      <p class="card-text">Variavel Descrição Ticket.</p>
-                      <p class="card-text">Variavel Data Ticket.</p>
+                        <p class="card-text">
+                          Preço: R${{ number.valorTicket }}
+                        </p>
+                        <small *ngIf="number.descricaoTicket.length >= 20" class="card-text">{{
+                          number.descricaoTicket.slice(0, 20) }}...</small><br />
+                        <small *ngIf="number.descricaoTicket.length < 20" class="card-text">{{
+                          number.categorias.descricaoCategoria }}</small>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
 
             <div class="carousel-item">
               <div class="row">
+                <div *ngFor="let number of listaProdutos | slice: 7:9" class="col-md-4 mb-3">
+                  <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
+                    <div class="card">
+                      <img class="img-fluid" alt="100%x280" routerLink="/product" src="{{ number.foto }}" />
+                      <div class="card-body">
+                        <h4 *ngIf="number.nomeTicket.length >= 15" class="card-title">
+                          {{ number.nomeTicket.slice(0, 15) }}...
+                        </h4>
+                        <h4 *ngIf="number.nomeTicket.length < 15" class="card-title">
+                          {{ number.nomeTicket }}
+                        </h4>
 
-                <div *ngFor="let number of [0,1,2]" class="col-md-4 mb-3">
-                  <div class="card">
-                    <!--Colocar o RouterLink para ser linkavel-->
-                    <img class="img-fluid" alt="100%x280" routerLink="/product"
-                      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=ee8417f0ea2a50d53a12665820b54e23">
-                    <div class="card-body">
-                      <h4 class="card-title">Variavel Titulo Ticket.</h4>
-                      <p class="card-text">Variavel Descrição Ticket.</p>
-                      <p class="card-text">Variavel Data Ticket.</p>
+                        <p class="card-text">
+                          Preço: R${{ number.valorTicket }}
+                        </p>
+                        <small *ngIf="number.descricaoTicket.length >= 20" class="card-text">{{
+                          number.descricaoTicket.slice(0, 20) }}...</small><br />
+                        <small *ngIf="number.descricaoTicket.length < 20" class="card-text">{{
+                          number.categorias.descricaoCategoria }}</small>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -167,7 +205,10 @@
   <div class="row">
     <div class="col-12">
       <div class="text-right">
-        <button type="button" class="btn btn-none btn-lg font-weight-bold" data-toggle="button" aria-pressed="false" routerLink="/product" >Veja mais</button>
+        <button type="button" class="btn btn-none btn-lg font-weight-bold" data-toggle="button" aria-pressed="false"
+          routerLink="/product">
+          Veja mais
+        </button>
       </div>
     </div>
   </div>

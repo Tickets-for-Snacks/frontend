@@ -38,6 +38,11 @@ export class RegisterComponent implements OnInit {
         this.user = resp;
         this.router.navigate(['/login']);
         alert('Usuário cadastrado com sucesso!');
+      },
+      (erro) => {
+        if (erro.status == 400) {
+          alert('Campo não foi preenchido corretamente')
+        }
       });
     }
   }

@@ -11,14 +11,21 @@
 
           <div class="form-group">
             <label for="email">E-mail:</label>
-            <input [(ngModel)]="user.usuario" class="form-control" type="text" name="email" id="email"
-              placeholder="Seu e-mail">
+            <input [(ngModel)]="user.usuario" #emailUser="ngModel" type="email" required maxlength="50"
+            placeholder="Digite o seu email" class="rounded-pill form-control">
+
+            <h6 *ngIf="emailUser.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
+
           </div>
 
           <div class="form-group">
             <label for="senha">Senha:</label>
             <input (input)="confirmSenha($event)" class="form-control " type="password" name="senha" id="senha"
               placeholder="Sua senha ">
+
+              <h6>Minimo de 8 caractéres.</h6>
+
           </div>
 
           <div class="form-group">
@@ -35,14 +42,20 @@
 
           <div class="form-group">
             <label for="nome">Nome:</label>
-            <input [(ngModel)]="user.nome" class="form-control" type="text" name="nome" id="nome"
-              placeholder="Seu nome">
+            <input [(ngModel)]="user.nome" #nomeUser="ngModel" type="text" required maxlength="50"
+            placeholder="Digite o seu nome" class="rounded-pill form-control">
+
+            <h6 *ngIf="nomeUser.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
+
           </div>
 
           <div class="form-group">
             <label for="confirmSenha">Confirmar senha:</label>
-            <input [(ngModel)]="user.senha" class="form-control" type="password" name="confirmSenha" id="confirmSenha"
+            <input [(ngModel)]="user.senha" #senhaUser="ngModel" minlength="8"  class="form-control" type="password" name="confirmSenha" id="confirmSenha"
               placeholder="Confirme sua senha">
+
+
+
           </div>
 
           <div class="form-group">

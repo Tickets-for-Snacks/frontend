@@ -140,7 +140,7 @@
 
             <div class="carousel-item">
               <div class="row">
-                <div *ngFor="let number of listaProdutos | slice: 4:6" class="col-md-4 mb-3">
+                <div *ngFor="let number of listaProdutos | slice: 4:7" class="col-md-4 mb-3">
                   <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
                     <div class="card">
                       <img class="img-fluid" alt="100%x280" routerLink="/product" src="{{ number.foto }}"
@@ -169,11 +169,11 @@
 
             <div class="carousel-item">
               <div class="row">
-                <div *ngFor="let number of listaProdutos | slice: 7:9" class="col-md-4 mb-3">
+                <div *ngFor="let number of listaProdutos | slice: 8:11" class="col-md-4 mb-3">
                   <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
                     <div class="card">
-                      <img class="img-fluid" alt="100%x280" routerLink="/product" src="{{ number.foto }}" />
-                      <div class="card-body">
+                      <img id="minSize" class="img-fluid" alt="100%x280" routerLink="/product" src="{{ number.foto }}" />
+                      <div class="card-body" id="minSize">
                         <h4 *ngIf="number.nomeTicket.length >= 15" class="card-title">
                           {{ number.nomeTicket.slice(0, 15) }}...
                         </h4>

@@ -12,33 +12,44 @@
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
       <div class="form-group d-flex flex-nowrap bd-highlight d-flex justify-content-center ">
-        <div class="order-3 p-2 bd-highlight"><i class="fa fa-search" aria-hidden="true"></i></div>
-      <input class="pr-5 pl-5 pt-2 pb-2 rounded-pill order-2 p-2 bd-highlight d-flex justify-content-center" type="text" placeholder= "Pesquise uma categoria">
+        <div class="order-3 p-2 bd-highlight"> <i class="fa fa-search"
+              aria-hidden="true"></i></div>
+        <input [(ngModel)]="categoriaProduto" (input)="findByTituloProduto()" class="pr-5 pl-5 pt-2 pb-2 rounded-pill order-2 p-2 bd-highlight d-flex justify-content-center"
+          type="text" placeholder="Pesquise uma categoria">
 
       </div>
-      </div>
+    </div>
 
-    <div  class="col-md-12 d-flex justify-content-center mt-3 mb-3">
-      <button *ngFor="let item of listaCategorias" id="selected" class="btn btn-danger rounded-pill pr-5 pl-5 mr-3">{{item.descricaoCategoria}}</button>
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10 my-3 text-center">
+      <button *ngFor="let item of listaCategorias" (click)="getProdutoByCategoria(item.produtos)" id="selected"
+        class="btn btn-danger rounded-pill px-5 mr-3 my-3">{{item.descricaoCategoria}}</button>
+       <br> <button class="btn btn-success rounded-pill mb-4 mt-3" (click)="getAllProdutos()" >Limpar Pesquisa por Categoria</button>
+
     </div>
 
 
     <div class="col-md-12">
 
       <div class="row">
-        <div *ngFor="let number of listaProdutos | orderBy : key : reverse" class="col-md-3 mb-3 d-flex align-items-stretch">
+        <div *ngFor="let number of listaProdutos | orderBy : key : reverse"
+          class="col-md-3 mb-3 d-flex align-items-stretch">
 
           <a class="text-decoration-none text-primary" [routerLink]="['/pag-ticket', number.id]">
-            <div class="card borderSolid">
-              <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize" width="250px" height="250px">
+            <div class="card " id="borderSolid">
+              <img class="img-fluid" alt="100%x280" src="{{number.foto}}" (error)="verificaImagem($event)" id="minSize"
+                width="250px" height="250px">
               <div class="card-body" id="minSize">
 
                 <h4 *ngIf="number.nomeTicket.length >= 15" class="card-title">{{number.nomeTicket.slice(0,15)}}...</h4>
                 <h4 *ngIf="number.nomeTicket.length < 15" class="card-title">{{number.nomeTicket}}</h4>
 
                 <p class="card-text">Preço: R${{number.valorTicket}}</p>
-                <small *ngIf="number.descricaoTicket.length >= 20 " class="card-text">{{number.descricaoTicket.slice(0,20)}}...</small><br>
-                <small *ngIf="number.descricaoTicket.length < 20 " class="card-text">{{number.categorias.descricaoCategoria}}</small>
+                <small *ngIf="number.descricaoTicket.length >= 20 "
+                  class="card-text">{{number.descricaoTicket.slice(0,20)}}...</small><br>
+                <small *ngIf="number.descricaoTicket.length < 20 "
+                  class="card-text">{{number.categorias.descricaoCategoria}}</small>
               </div>
             </div>
           </a>
@@ -46,7 +57,7 @@
       </div>
     </div>
 
-    <div class="col-md-12 d-flex justify-content-center mb-5">
+    <div class="col-md-12 d-flex justify-content-center my-5">
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">

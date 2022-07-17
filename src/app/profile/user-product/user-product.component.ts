@@ -30,6 +30,8 @@ export class UserProductComponent implements OnInit {
 
   idUsuario = environment.id;
 
+  categoriaProduto: string
+
   constructor(
     private produtoService: ProdutoService,
     private router: Router,
@@ -81,6 +83,16 @@ export class UserProductComponent implements OnInit {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp) => {
       this.usuario = resp;
     });
+  }
+
+  findByCategoriaProduto() {
+    if(this.categoriaProduto == ''){
+      this.findAllProduto()
+    }else{
+      this.produtoService.getByNomeProduto(this.categoriaProduto).subscribe((resp: Produto[]) => {
+        this.listaProdutos = resp
+      })
+    }
   }
 
   cadastrar() {

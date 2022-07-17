@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Produto } from 'src/app/model/Produto';
 import { Usuario } from 'src/app/model/Usuario';
 import { AuthService } from 'src/app/service/auth.service';
+import { ProdutoService } from 'src/app/service/produto.service';
 import { environment } from 'src/environments/environment.prod';
+import arrayShuffle from 'array-shuffle';
+
 
 @Component({
   selector: 'app-home',
@@ -11,20 +15,39 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class HomeComponent implements OnInit {
 
+  listaProdutos: Produto[]
+
   nome = environment.nome
   foto = environment.foto
   id : number
   usuario: Usuario = new Usuario()
 
-  constructor(private router: Router, private authService: AuthService) { }
 
-  ngOnInit(): void {
+  constructor(private router: Router,private produtoService: ProdutoService, private authService: AuthService) { }
+
+  ngOnInit(){
+
+    this.getAllProdutos()
+
   }
+
+  key = 'data'
+  reverse = true
 
   findByIdUsuario() {
     this.authService.getByIdUsuario(this.id).subscribe((resp) => {
       this.usuario = resp;
     });
+  }
+
+  getAllProdutos(){
+    this.produtoService.getAllProduto().subscribe((resp: Produto[]) => {
+      this.listaProdutos = resp;
+      let shuffle = arrayShuffle(this.listaProdutos)
+      this.listaProdutos = shuffle
+      console.log(this.listaProdutos)
+    });
+
   }
 
 

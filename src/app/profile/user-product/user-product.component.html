@@ -11,8 +11,9 @@
 
     <div class="col-md-12 d-flex justify-content-center mt-3 mb-3">
       <div class="form-group">
-        <i class="fa fa-search btn btn-secondary" aria-hidden="true"></i>
-        <input class="pr-5 pl-5 pt-2 pb-2 rounded-pill" type="text" placeholder="Pesquise seus produtos">
+
+        <input (input)="findByIdCategoria()" class="pr-5 pl-5 pt-2 pb-2 mr-2 rounded-pill" type="text" placeholder="Pesquise seus produtos">
+        <i class="fa fa-search" aria-hidden="true"></i>
       </div>
     </div>
 
@@ -53,7 +54,7 @@
       </div>
     </div>
 
-    <div class="col-md-12 d-flex justify-content-center mb-5">
+    <div class="col-md-12 d-flex justify-content-center my-5">
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">

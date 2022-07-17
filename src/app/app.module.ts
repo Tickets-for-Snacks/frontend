@@ -22,6 +22,8 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
 import { PagTicketComponent } from './product/pag-ticket/pag-ticket.component';
 import { OrderModule } from 'ngx-order-pipe';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

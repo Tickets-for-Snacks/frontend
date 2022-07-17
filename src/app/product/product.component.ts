@@ -17,13 +17,17 @@ export class ProductComponent implements OnInit {
 
   produto: Produto = new Produto()
   produtoAdd: Produto = new Produto()
+
   listaProdutos: Produto[]
+
+
   listaCategorias: Categoria[]
   categoria : Categoria = new Categoria()
-  idCategoria : number
-  usuario : Usuario = new Usuario()
 
-  idUsuario = environment.id
+  idCategoriaSelecionada: number
+  backupFiltroCategorias: Produto[] = []
+
+  categoriaProduto: string
 
 
   constructor(
@@ -37,6 +41,7 @@ export class ProductComponent implements OnInit {
   ) { }
 
 
+
   ngOnInit() {
     this.getAllCategoria()
     this.getAllProdutos()
@@ -45,28 +50,44 @@ export class ProductComponent implements OnInit {
   key = 'data'
   reverse = true
 
+  getProdutoByCategoria(itemProdutos: Produto[]){
+
+      this.listaProdutos = itemProdutos
+
+  }
+
+
+
   getAllProdutos(){
     this.produtoService.getAllProduto().subscribe((resp: Produto[]) => {
       this.listaProdutos = resp;
     });
   }
-  findByIdCategoria() {
-    this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria) => {
-      this.categoria = resp;
-    });
-  }
+
+
   getAllCategoria() {
     this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
       this.listaCategorias = resp;
+      console.log(this.categoria.produtos)
     });
   }
 
 
-  findByIdUsuario(){
-    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp) => {
-      this.usuario = resp
-    })
+  findByTituloProduto() {
+    if(this.categoriaProduto == ''){
+      this.getAllProdutos()
+    }else{
+      this.produtoService.getByNomeProduto(this.categoriaProduto).subscribe((resp: Produto[]) => {
+        this.listaProdutos = resp
+      })
+    }
   }
+
+
+ /* pesquisaPorProduto(event: any){
+    this.findByCategoriaProduto() = event.target.value
+  }*/
+
 
   verificaImagem(event: Event) {
     const htmlImagem = event.target as HTMLImageElement;

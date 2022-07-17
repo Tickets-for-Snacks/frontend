@@ -26,6 +26,10 @@ getByIdProduto(id: number): Observable<Produto>{
   return this.http.get<Produto>(`https://ticketsforsnacks.herokuapp.com/produtos/${id}`, this.token)
 }
 
+getByNomeProduto(nome: string): Observable<Produto[]>{
+  return this.http.get<Produto[]>(`https://ticketsforsnacks.herokuapp.com/produtos/nometicket/${nome}`, this.token)
+}
+
 
 postProduto(produto: Produto): Observable<Produto>{
   return this.http.post<Produto>('https://ticketsforsnacks.herokuapp.com/produtos', produto, this.token)

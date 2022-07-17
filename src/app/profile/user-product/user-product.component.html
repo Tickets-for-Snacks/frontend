@@ -28,7 +28,7 @@
 
             <div class="card">
               <img class="img-fluid" alt="100%x280" src="{{item.foto}}" (error)="verificaImagem($event)" id="minSize">
-              <div class="card-body" >
+              <div class="card-body" id="minSize">
 
                 <a [routerLink]="['/pag-ticket', item.id]"><h4 *ngIf="item.nomeTicket.length >= 12" class="card-title">{{item.nomeTicket.slice(0,12)}}...</h4>
                 <h4 *ngIf="item.nomeTicket.length < 12" class="card-title">{{item.nomeTicket}}</h4></a>

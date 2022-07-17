@@ -94,7 +94,7 @@ export class UserProductComponent implements OnInit {
       .postProduto(this.produtoAdicionar)
       .subscribe((resp: Produto) => {
         this.produtoAdicionar = resp;
-        this.findByIdProduto;
+        this.findByIdUsuario;
         this.produtoAdicionar = new Produto();
         alert('Produto cadastrado com sucesso!');
       },

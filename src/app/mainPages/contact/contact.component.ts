@@ -11,6 +11,11 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
+  alertaDeEnvio(){
+    alert('Assunto/Duvida enviado para a Ticket for Snacks')
+  }
+
 
 }
+

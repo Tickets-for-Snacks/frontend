@@ -12,7 +12,7 @@
           <div class="form-group">
             <label for="email">E-mail:</label>
             <input [(ngModel)]="user.usuario" #emailUser="ngModel" type="email" required maxlength="50"
-            placeholder="Digite o seu email" class="rounded-pill form-control">
+              placeholder="Digite o seu email" class="rounded-pill form-control">
 
             <h6 *ngIf="emailUser.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
 
@@ -24,7 +24,7 @@
             <input (input)="confirmSenha($event)" class="form-control " type="password" name="senha" id="senha"
               placeholder="Sua senha ">
 
-              <h6>Minimo de 8 caractéres.</h6>
+            <h6>Minimo de 8 caractéres.</h6>
 
           </div>
 
@@ -43,7 +43,7 @@
           <div class="form-group">
             <label for="nome">Nome:</label>
             <input [(ngModel)]="user.nome" #nomeUser="ngModel" type="text" required maxlength="50"
-            placeholder="Digite o seu nome" class="rounded-pill form-control">
+              placeholder="Digite o seu nome" class="rounded-pill form-control">
 
             <h6 *ngIf="nomeUser.errors?.['required']" class="font-weight-bold">Não pode ser vazio.</h6>
 
@@ -51,8 +51,8 @@
 
           <div class="form-group">
             <label for="confirmSenha">Confirmar senha:</label>
-            <input [(ngModel)]="user.senha" #senhaUser="ngModel" minlength="8"  class="form-control" type="password" name="confirmSenha" id="confirmSenha"
-              placeholder="Confirme sua senha">
+            <input [(ngModel)]="user.senha" #senhaUser="ngModel" minlength="8" class="form-control" type="password"
+              name="confirmSenha" id="confirmSenha" placeholder="Confirme sua senha">
 
 
 
@@ -62,10 +62,10 @@
             <label for="tipo">Tipo de Usuário</label>
             <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
               <option>Selecione um tipo de usuário:</option>
-              <option value="normal">Cliente</option>
-              <option value="empresa">Empresa</option>
-              <option value="pmcomunidade">Pequena/Média comunidade de fazenda</option>
-              <option value="ong">ONG</option>
+              <option value="Cliente">Cliente</option>
+              <option value="Empresa">Empresa</option>
+              <option value="Pequena/Média comunidade de fazenda">Pequena/Média comunidade de fazenda</option>
+              <option value="ONG">ONG</option>
             </select>
           </div>
 

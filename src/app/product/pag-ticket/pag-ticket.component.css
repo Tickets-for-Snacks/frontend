@@ -23,3 +23,17 @@ h3{
 .card{
   border: 1px solid red;
 }
+
+.fa-ticket{
+  color: rgb(226, 152, 14);
+  font-size: 20pt;
+}
+
+button{
+  background-color: orange;
+}
+
+.fa-shopping-cart{
+  color: rgb(223, 215, 200);
+  font-size: 20pt;
+}

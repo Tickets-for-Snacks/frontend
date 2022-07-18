@@ -1,58 +1,44 @@
 <div class="container pt-5">
+
   <div class="row">
 
-    <div class="col-md-12">
-      <div class="row">
-
-        <div class="col-md-5">
-
-          <div class="row ">
-            <img src="{{produto.foto}}" alt="" class="minSize" (error)="verificaImagem($event)">
-          </div>
-
-          <div class="row">
-            <div class="col-md-12 text-center my-5">
-              <h2 class="font-weight-bold">{{produto.nomeTicket}}</h2>
-            </div>
-
-
-            <div class="col-md-12">
-              <h6>{{produto.descricaoTicket}}</h6>
-            </div>
-          </div>
-
-
-        </div>
-
-        <div class="col-md-2 ml-5"></div>
-
-        <!--
-        <div class="col-md-1 ">
-          <div class="linha-vertical mr-5"></div>
-        </div>
-
-        <div class="col-md-5">
-          <h2 class="font-weight-bold">Categoria: {{produto.categorias.descricaoCategoria}}</h2>
-          <h3 class="font-weight-bold">{{produto.nomeTicket}}</h3>
-          <h3>Data e Hora do Ticket: {{produto.dataHoraTicket}}</h3>
-          <h3>Valor total do Ticket: R${{produto.valorTicket}}</h3>
-
-          Não fiz o click pelo fato de não ter o modal de finalização
-          <button class="btn btn-success pr-5 pl-5 mt-5">Comprar</button>
-        </div>
-      -->
-
-        <div class="col-md-4 text-center pt-5 mt-5">
-          <h2 class="font-weight-bold mt-5">Categoria: {{produto.categorias.descricaoCategoria}}</h2>
-          <h3>Data do Ticket: {{produto.dataHoraTicket}}</h3>
-          <h3 class="mb-5">Valor do Ticket: R${{produto.valorTicket}}</h3>
-
-          <!--Não fiz o click pelo fato de não ter o modal de finalização-->
-          <button class="btn btn-success pr-5 pl-5 mt-5 rounded-pill" data-toggle="modal" data-target="#comprar" >Comprar</button>
-        </div>
-
-      </div>
+    <div class="col-md-12 mb-4 text-center">
+      <hr>
+      <h1 class="font-weight-bold my-2">{{produto.nomeTicket}}</h1>
     </div>
+  </div>
+
+  <div class="row  ">
+
+    <div class="col-md-6 ">
+
+      <img class="mt-4" src="{{produto.foto}}" (error)="verificaImagem($event)" alt="" width="450px" height="350px" >
+
+    </div>
+
+    <div class="col-md-6 mt-5">
+
+      <h6>Vendido por: {{produto.usuarios.nome}} </h6>
+      <div class="d-inline-flex"><h1>R$ {{produto.valorTicket-produto.valorTicket*0.05}}</h1> <button data-toggle="modal" data-target="#comprar" class="ml-5 px-4 rounded-pill text-white" ><i class="fa fa-shopping-cart mr-2" aria-hidden="true"></i>Comprar</button></div> <br>
+
+      <div class="d-inline-flex mt-3" ><h6>À vista no PIX com até </h6> <h6 class="ml-1 font-weight-bold" > 5% OFF</h6> </div> <br>
+
+      <small class="font-weight-bold">R$ {{produto.valorTicket}}</small>
+      <h6>Em até 10x de R$ {{produto.valorTicket/10}} sem juros no cartão</h6>
+      <h6> Ou em 1x no cartão com até 5% OFF</h6>
+
+      <a class="text-muted">Ver mais opções de pagamento</a>
+
+      <h5 class="my-3" ><i class="fa fa-ticket mr-3" aria-hidden="true"></i>Outros Tickets Similares</h5>
+
+      <div *ngFor="let item of listaProdutos | slice :0:5" class="card d-inline-flex mx-1 " >
+        <a href="" [routerLink]="['/pag-ticket', item.id]" (click)="findByIdProduto(item.id) ">
+        <img src="{{item.foto}}" (error)="verificaImagem($event)" class="card-img-top" alt="..." style="min-width: 75px;max-width: 75px; min-height: 75px; max-height: 75px">
+      </a>
+    </div>
+
+
+
   </div>
 
 </div>

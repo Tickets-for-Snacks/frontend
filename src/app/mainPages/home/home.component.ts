@@ -50,6 +50,12 @@ export class HomeComponent implements OnInit {
 
   }
 
+  verificaImagem(event: Event) {
+    const htmlImagem = event.target as HTMLImageElement;
+    htmlImagem.src =
+      'https://i.imgur.com/UB7iHgs.png';
+  }
+
 
   logado() {
     let ok: boolean = false;
